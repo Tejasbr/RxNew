@@ -1,0 +1,81 @@
+<div id="transitOrder">
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card>              
+                <nb-card-header style="font-size: 18px; letter-spacing: 0.8px;">
+                    <nb-icon icon="map-outline" class="mr-1"></nb-icon>View Orders in Transit
+                </nb-card-header>
+
+                <nb-card-body>
+
+                    <div class="row">
+                        <div class="col-md-12 mt-4 mb-4">
+
+                                    <form>
+                                        <div class="full-name-inputs col-sm-3 m-auto">
+                                            <nb-select placeholder="Display Current Orders" class="pos6" style="width: 100% !important;">
+                                                <nb-option value="0"><a href="#">Order1</a></nb-option>
+                                                <nb-option value="1"><a href="#">Order2</a></nb-option>
+                                                <nb-option value="2"><a href="#">Order3</a></nb-option>
+                                            </nb-select>
+
+                                        </div>
+
+                                    </form>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row mt-2">
+
+                        <div class="col-sm-5">
+                            <div class="col-md-12 mb-4"><h5> Order Timeline</h5></div>
+                            <form>
+                                <div class="full-name-inputs">
+                                    <input type="time" nbInput fullWidth id="inputNumber1" placeholder="time" class="form-group">
+                                    <input type="text" nbInput fullWidth id="inputText1" placeholder="order Details" class="form-group">
+                                </div>
+
+                                <div class="full-name-inputs">
+                                    <input type="time" nbInput fullWidth id="inputNumber2" placeholder="time" class="form-group">
+                                    <input type="text" nbInput fullWidth id="inputText2" placeholder="order Details" class="form-group">
+                                </div>
+
+                                <div class="full-name-inputs">
+                                    <input type="time" nbInput fullWidth id="inputNumber3" placeholder="time" class="form-group">
+                                    <input type="text" nbInput fullWidth id="inputText3" placeholder="order Details" class="form-group">
+                                </div>
+
+                                <div class="full-name-inputs">
+                                    <input type="time" nbInput fullWidth id="inputNumber4" placeholder="time" class="form-group">
+                                    <input type="text" nbInput fullWidth id="inputText4" placeholder="order Details" class="form-group">
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="col-sm-7">
+                            <div class="col-md-12 mb-4"><h5> Live Tracking</h5></div>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.048131824633!2d73.16843201495556!3d22.35181138529683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8af5924fd1d%3A0x62a6d2dac53a9021!2sGowrie%20Healthcare%20Pvt%20Ltd%20%26%20Gowrie%20Research%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1614826799130!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                                    </iframe>
+                        </div>
+                        
+                    </div>
+
+                    <div class="text-center dsg pb-4 pt-4">
+                        <button type="submit" nbButton status="danger" size="small" (click)="getDesk()">
+                            <nb-icon icon="close-circle-outline" class="mr-1"></nb-icon>Close
+                        </button>
+                    </div>
+
+                </nb-card-body>
+            </nb-card>
+
+        </div>
+    </div>
+
+</div>
+
+

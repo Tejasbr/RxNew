@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>Membership Details</nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="membershipForm">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="text" nbInput fullWidth id="memberName" placeholder="Member Name*"
+                                formControlName="memberName" autofocus>
+                        </div>
+                        <div class="col-sm-3">
+                            <input nbInput placeholder="Start Date*" [nbDatepicker]="formpicker"
+                                formControlName="formpicker">
+                            <nb-datepicker #formpicker (dateChange)="getStartDate($event)"></nb-datepicker>
+                        </div>
+                        <div class="col-sm-3">
+                            <input nbInput placeholder="End Date*" [nbDatepicker]="topicker" formControlName="topicker">
+                            <nb-datepicker #topicker [min]="minDate"></nb-datepicker>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <input type="text" nbInput fullWidth id="signUpEarnedPoints"
+                                placeholder="Points Earned for Membership Signup" formControlName="signUpEarnedPoints">
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="text" nbInput fullWidth id="membershipCharge" placeholder="Membership Charges*"
+                                formControlName="membershipCharge">
+                        </div>
+                        <div class="col-sm-2">
+                            <nb-checkbox checked id="membershipActive" formControlName="membershipActive">Active
+                            </nb-checkbox>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="text" nbInput fullWidth id="minPointBal" placeholder="Minimum Points Balance*"
+                                formControlName="minPointBal">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" nbInput fullWidth id="maxPointBal" placeholder="Maximum Points Balance*"
+                                formControlName="maxPointBal">
+                        </div>
+                    </div>
+                    <div class="form-group row buttonsClass">
+                        <div class="col-sm-4">
+                            <button type="submit" nbButton status="primary" outline fullWidth
+                                (click)="submitMemberData()">Submit</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="submit" nbButton status="primary" outline fullWidth
+                                (click)="clearSelection()">Clear</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="submit" nbButton status="primary" outline fullWidth>Close</button>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div>
+        <nb-card-header>
+            Membership List
+        </nb-card-header>
+
+        <nb-card-body>
+            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+            </ng2-smart-table>
+        </nb-card-body>
+    </div>
+</div>

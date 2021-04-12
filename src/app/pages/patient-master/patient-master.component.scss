@@ -1,0 +1,62 @@
+.headerClass {
+  text-align: center;
+}
+.form-group.row.buttonsClass {
+  text-align: center;
+}
+nb-checkbox {
+  margin-bottom: 1rem;
+}
+
+.form-inline [fullWidth] {
+  flex: 1;
+}
+
+.form-inline > * {
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+nb-card.inline-form-card nb-card-body {
+  padding-bottom: 0;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.col-sm-4 {
+  flex: 0 0 33.333333%;
+  max-width: 55.333333%;
+}
+.margin{
+  margin-left: 15%;
+}
+.margin1{
+  margin-left: 19.50%;
+}
+.bor input{
+  border-radius: 20px;
+}
+.wdt{
+  width:10px;
+}
+.pos6{
+  width:100%;
+}
+.pos{
+  margin-left: 40%;
+}
+.mlm-130{
+margin-left: -130px;
+}
+.InlineBlock{
+  display: inline-block !important;
+}
+.datepicker{
+  position: relative;
+}
+.datepicker span{
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  color: #8c8cc4;
+}

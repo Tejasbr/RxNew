@@ -1,0 +1,60 @@
+
+.form-group.row.buttonsClass {
+  text-align: center;
+}
+nb-checkbox {
+  margin-bottom: 1rem;
+}
+
+.form-inline [fullWidth] {
+  flex: 1;
+}
+
+.form-inline > * {
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+nb-card.inline-form-card nb-card-body {
+  padding-bottom: 0;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.wdt{
+  width:10px;
+}
+.pos6{
+  width:100%;
+}
+.searchInput{
+position: relative;
+}
+.searchInput span{
+position: absolute;
+left: 25px;
+top: 10px;
+color: #b4b4bc
+}
+.search-input{
+padding-left: 35px !important;
+}
+#courierMaster .table {
+color: #dcdcdc;
+border: 1px solid #000032;
+margin: 0;
+}
+#courierMaster  .table thead{
+background: #604cb3;
+}
+#courierMaster .table thead th{
+border-bottom: 1px solid #000032;
+border-top: none;
+border-right: 1px solid #000032;
+color: #fff;
+}
+#courierMaster  .table th,  #courierMaster  .table td{
+border-top: 1px solid #000032;
+border-right: 1px solid #000032;
+}

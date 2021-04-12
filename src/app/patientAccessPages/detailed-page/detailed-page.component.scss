@@ -1,0 +1,117 @@
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+  
+  /* Hide the tooltip content by default */
+  [data-tooltip]:before,
+  [data-tooltip]:after {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999999;
+  }
+  
+  /* Position tooltip above the element */
+  [data-tooltip]:before {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px 0;
+    width: 150px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #a16eff;
+    background-color: #a16eff;
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+    text-transform: capitalize;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+  }
+  
+  /* Triangle hack to make tooltip look like a speech bubble */
+  [data-tooltip]:after {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-bottom: 5px solid #a16eff;
+    border-bottom: 5px solid #a16eff;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+  }
+  
+  /* Show tooltip content on hover */
+  [data-tooltip]:hover:before,
+  [data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+  }
+
+#viewThreeOrder .table {
+    color: #dcdcdc;
+    border: 1px solid #000032;
+    margin: 20px 0;
+  }
+  #viewThreeOrder .table thead{
+    background: #604cb3;
+  }
+  #viewThreeOrder .table thead th{
+    border-bottom: 1px solid #000032;
+    border-top: none;
+    border-right: 1px solid #000032;
+    color: #fff;
+  }
+  #viewThreeOrder .table th,  #viewThreeOrder .table td{
+    border-top: 1px solid #000032;
+    border-right: 1px solid #000032;
+  }
+
+  #OrderView .table {
+    color: #dcdcdc;
+    border: 1px solid #000032;
+    margin: 20px 0;
+  }
+  #OrderView .table thead{
+    background: #604cb3;
+  }
+  #OrderView .table thead th{
+    border-bottom: 1px solid #000032;
+    border-top: none;
+    border-right: 1px solid #000032;
+    color: #fff;
+  }
+  #OrderView .table th,  #OrderView .table td{
+    border-top: 1px solid #000032;
+    border-right: 1px solid #000032;
+  }
+
+  #viewmyOrderSubscription .table {
+    color: #dcdcdc;
+    border: 1px solid #000032;
+    margin: 20px 0;
+  }
+  #viewmyOrderSubscription .table thead{
+    background: #604cb3;
+  }
+  #viewmyOrderSubscription .table thead th{
+    border-bottom: 1px solid #000032;
+    border-top: none;
+    border-right: 1px solid #000032;
+    color: #fff;
+  }
+  #viewmyOrderSubscription .table th,  #viewmyOrderSubscription .table td{
+    border-top: 1px solid #000032;
+    border-right: 1px solid #000032;
+  }

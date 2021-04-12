@@ -1,0 +1,387 @@
+<!-- <div class="headerClass">
+    <h5>Create, Edit Profile & Settings</h5>
+</div> -->
+
+<div id="createProfile">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <nb-card>
+                    <nb-card-header style="font-size: 18px;">
+                        <nb-icon icon="person-add-outline" class="pr-2" style="font-size: 28px;"></nb-icon>Create, Edit
+                        Profile & Settings
+                    </nb-card-header>
+                </nb-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="content {{storedTheme}}" role="main">
+        <div class="col-lg-12">
+            <div class="row">
+
+                <div class=" col-xxl-6 ">
+                    <nb-card class="con">
+                        <nb-card-body class="whitebg">
+                            <form [formGroup]="ruleDefinitionForm">
+
+                                <div class="form-group row ">
+                                    <div class="col-md-12">
+                                        <nb-toggle status="success" (click)="toggle()" class="mr-4"></nb-toggle>
+                                        <input type="text" nbInput class="label col-sm-10 col-form-label" fullWidth
+                                            placeholder="Change Demographic Details(User: Pharmacist)">
+                                    </div>
+                                </div>
+
+                                <nb-accordion class="userboxShadownone">
+                                    <nb-accordion-item #item class="active">
+                                        <nb-accordion-item-body class="accordianCardbody">
+                                            <div class="dsg heading">
+                                                <div class="form-group row">
+                                                    <label for="inputFirstName"
+                                                        class="label col-sm-3 col-form-label">FirstName*</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <input type="text" nbInput fullWidth id="inputFirstName"
+                                                            formControlName="inputFirstName"
+                                                            placeholder="First Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputFirstName"
+                                                        class="label col-sm-3 col-form-label">LastName*</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <input type="text" nbInput fullWidth id="inputLastName"
+                                                            formControlName="inputLastName"
+                                                            placeholder="Last Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputFirstName"
+                                                        class="label col-sm-3 col-form-label">Date Of Birth*</label>
+                                                    <div class="full-name-inputs col-sm-9 datepicker">
+                                                        <!-- <input type="date" nbInput fullWidth id="inputDate"
+                                                            formControlName="inputDate" placeholder="Birth Date"> -->
+                                                            <input nbInput placeholder="Birth Date" [nbDatepicker]="formpicker" fullWidth id="inputDate" formControlName="inputDate">
+                                                            <span><nb-icon icon="calendar-outline"></nb-icon></span>
+                                                            <nb-datepicker #formpicker></nb-datepicker>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputAddress"
+                                                        class="label col-sm-3 col-form-label">Pharmacy Address*</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <!-- <input type="text" nbInput fullWidth id="inputAddress"
+                                                            placeholder="Pharmacy Address"
+                                                            formControlName="inputAddress"> -->
+                                                            <textarea nbInput fullWidth placeholder="Pharmacy Address" formControlName="inputAddress" id="inputAddress"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputEmail" class="label col-sm-3 col-form-label">Email
+                                                        ID*</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <input type="email" nbInput fullWidth id="inputEmail"
+                                                            placeholder="Email ID" formControlName="inputEmail">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="inputMobile"
+                                                        class="label col-sm-3 col-form-label">Mobile No*</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <input type="number" nbInput fullWidth id="inputMobile"
+                                                            placeholder="Mobile No"
+                                                            formControlName="inputMobile">
+                                                        <div *ngIf="f.inputMobile.touched && f.inputMobile.invalid"
+                                                            class="alert alert-danger">
+                                                            <div *ngIf="f.inputMobile.errors.required">Mobile Number is
+                                                                required.</div>
+                                                            <div *ngIf="f.inputMobile.errors.pattern">Please, Enter 10
+                                                                digit
+                                                                Mobile Number.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+
+                                                    <label for="inputRegNo"
+                                                        class="label col-sm-3 col-form-label">GPHC/PSNI
+                                                        No</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <input type="number" nbInput fullWidth id="inputRegNo"
+                                                            placeholder="Reg No"
+                                                            formControlName="inputRegNo">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row buttonsClass mt-5 mb-4">
+                                                    <div class=" m-auto text-center">
+                                                        <button type="submit" nbButton size="medium" status="primary" class="mr-3 mb-2" (click)="storeData(ruleDefinitionForm)"
+                                                        [disabled]="!ruleDefinitionForm.valid">
+                                                            <nb-icon icon="save-outline"></nb-icon>Submit
+                                                        </button>
+                                                        <button type="submit" nbButton status="default" size="medium"  (click)="clear(ruleDefinitionForm)" class="mr-3 mb-2">
+                                                            <nb-icon icon="minus-circle-outline"></nb-icon>Clear 
+                                                        </button>
+                                                        <button type="submit" nbButton status="danger" (click)="toggle()" size="medium" class="mb-2">
+                                                            <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                                        </button>
+                                                    </div>
+                                                </div> 
+
+                                            </div>
+                                        </nb-accordion-item-body>
+                                    </nb-accordion-item>
+                                </nb-accordion>
+                            </form>
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+
+                <div class="col-xxl-6">
+                    <nb-card class="con con2">
+
+                        <nb-card-body class="whitebg">
+                            <form [formGroup]="password">
+                                <div class="form-group row">
+                                    <div class="full-name-inputs col-lg-12">
+                                        <nb-toggle status="success" (click)="toggle2()" class="mr-3"></nb-toggle>
+                                        <input type="text" nbInput placeholder="Change Password" fullWidth
+                                            class="col-sm-10">
+                                    </div>
+                                </div>
+
+
+                                <nb-accordion class="userboxShadownone">
+                                    <nb-accordion-item #item2>
+                                        <nb-accordion-item-body class="accordianCardbody">
+                                            <div class="dsg">
+                                                <div class="form-group row">
+                                                    <label for="inputPassword" class="label col-sm-3 col-form-label">
+                                                        Current Password*</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <input type="password" nbInput fullWidth id="inputPassword"
+                                                            placeholder="Current Password"
+                                                            formControlName="inputPassword">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="inputNewPassword" class="label col-sm-3 col-form-label">
+                                                        New Password*</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <input type="password" nbInput fullWidth id="inputNewPassword"
+                                                            placeholder="New Password"
+                                                            formControlName="inputNewPassword">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="inputConfPassword"
+                                                        class="label col-sm-3 col-form-label">
+                                                        Confirm Password*</label>
+                                                    <div class="full-name-inputs col-sm-9">
+                                                        <input type="password" nbInput fullWidth id="inputConfPassword"
+                                                            placeholder="Confirm New Password"
+                                                            formControlName="inputConfPassword">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row buttonsClass mt-5 mb-4">
+                                                    <div class=" m-auto text-center">
+                                                        <button type="submit" nbButton size="medium" status="warning" class="mr-3 mb-3">
+                                                            <nb-icon icon="save-outline"></nb-icon>Submit
+                                                        </button>
+                                                        <button type="submit" nbButton status="default" size="medium" class="mr-3 mb-3" (click)="clear2(password)">
+                                                            <nb-icon icon="minus-circle-outline"></nb-icon>Clear 
+                                                        </button>
+                                                        <button type="submit" nbButton status="danger" (click)="toggle2()" size="medium" class="mb-3">
+                                                            <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                                        </button>
+                                                    </div>
+                                                </div> 
+
+                                            </div>
+                                        </nb-accordion-item-body>
+                                    </nb-accordion-item>
+                                </nb-accordion>
+                            </form>
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+                <div class="col-xxl-6">
+
+                    <nb-card class="con con3">
+
+                        <nb-card-body class="whitebg">
+                            <form [formGroup]="avtarForm">
+                                <div class="form-group row">
+                                    <div class="full-name-inputs col-lg-12">
+                                        <nb-toggle status="success" (click)="toggle3()" class="mr-3"></nb-toggle>
+                                        <input type="text" nbInput fullWidth class="col-sm-10"
+                                            placeholder="Create Avatar(User: Pharmacist)" >
+                                    </div>
+                                </div>
+
+                                <nb-accordion class="userboxShadownone">
+                                    <nb-accordion-item #item3>
+                                        <nb-accordion-item-body class="accordianCardbody">
+                                            <div class="dsg">
+                                                <div class="full-name-inputs col-sm-12">
+                                                    <label for="inputFirstName"
+                                                        class="label col-form-label">Attach
+                                                        Photo</label>
+                                                </div>
+                                                <div class="form-group row mb-5">                                              
+                                                    <div class="full-name-inputs col-sm-12 d-flex">
+   
+                                                            <div class="col-md-8">
+                                                                <div class="custom-file">
+                                                                    <input type="file" class="custom-file-input" id="customFile" name="profile_photo" (change)="onselectFile($event)" placeholder="Photo"
+                                                                    required="" capture formControlName="attachPhoto"
+                                                                    name="attachPhoto">
+                                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <img [src]="url" height="100">
+                                                            </div>
+
+                                                        <!-- <input id="image" type="file" name="profile_photo"
+                                                            (change)="onselectFile($event)" placeholder="Photo"
+                                                            required="" capture formControlName="attachPhoto"
+                                                            name="attachPhoto" > -->
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row buttonsClass mt-5 mb-4">
+                                                    <div class=" m-auto text-center">
+                                                        <button type="submit" nbButton size="medium" status="warning" class="mr-3 mb-2">
+                                                            <nb-icon icon="save-outline"></nb-icon>Submit
+                                                        </button>
+                                                        <button type="submit" nbButton status="default" size="medium"  class="mr-3 mb-2">
+                                                            <nb-icon icon="minus-circle-outline"></nb-icon>Clear 
+                                                        </button>
+                                                        <button type="submit" nbButton status="danger" (click)="toggle3()" size="medium" class="mb-2">
+                                                            <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                                        </button>
+                                                    </div>
+                                                </div> 
+
+
+                                                
+
+                                            </div>
+                                        </nb-accordion-item-body>
+                                    </nb-accordion-item>
+                                </nb-accordion>
+                            </form>
+                        </nb-card-body>
+                    </nb-card>
+
+                </div>
+                <div class="col-xxl-6">
+
+                    <nb-card id="nb_card_last" class="con">
+
+                        <nb-card-body class="whitebg">
+                            <form [formGroup]="design">
+                            <div class="form-group row">
+                                <div class="full-name-inputs col-lg-12">
+                                    <nb-toggle status="success" (click)="toggle4()" class="mr-3"></nb-toggle>
+                                    <input type="text" fullWidth class="col-sm-10" nbInput
+                                        placeholder="Design & Layout">
+                                </div>
+                            </div>
+                            <nb-accordion class="userboxShadownone">
+                                <nb-accordion-item #item4>
+                                    <nb-accordion-item-body class="accordianCardbody">
+                                        <div class="dsg">
+                                            <div class="form-group row pos">
+
+                                                <!-- <label for="inputFirstName" class="label col-sm-6 col-form-label">Theme Colour</label>
+                                        <div class="full-name-inputs col-sm-6"> -->
+
+
+                                                <label for="inputList" class="label col-sm-3 col-form-label">Theme
+                                                    Colour</label>
+                                                <div class="full-name-inputs col-sm-3">
+
+                                                    <div class="theme-options">
+                                                        <div id="theme-white" (click)="setTheme('theme-white')"></div>
+                                                        <!-- <div id="theme-blue" (click)="setTheme('theme-blue')"></div>
+                                                            <div id="theme-orange" (click)="setTheme('theme-orange')"></div>
+                                                            <div id="theme-green" (click)="setTheme('theme-green')"></div> -->
+                                                        <div id="theme-black" (click)="setTheme('theme-black')"></div>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="inputList" class="label col-sm-3 col-form-label">Layout</label>
+                                                <div class="full-name-inputs col-sm-9">
+                                                    <nb-select placeholder="select" formControlName="layout"
+                                                    name="layout" fullwidth style="width: 100%;">
+                                                        <nb-option value="0">Full Screen</nb-option>
+                                                        <nb-option value="1">Reduced Screen</nb-option>
+                                                    </nb-select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="inputList" class="label col-sm-3 col-form-label">
+                                                    Sidebar Position
+                                                </label>
+                                                <div class="full-name-inputs col-sm-9">
+                                                    <nb-select placeholder="select" fullwidth formControlName="sidebar"
+                                                    name="sidebar" style="width: 100%;">
+                                                        <nb-option value="0">Left</nb-option>
+                                                        <nb-option value="1">Right</nb-option>
+                                                    </nb-select>
+                                                </div>
+                                            </div>
+                                       
+                                            <div class="row buttonsClass mt-5 mb-4">
+                                                <div class=" m-auto text-center">
+                                                    <button type="submit" nbButton size="medium" status="warning" class="mr-3 mb-3">
+                                                        <nb-icon icon="save-outline"></nb-icon>Submit
+                                                    </button>
+                                                    <button type="submit" nbButton status="default" size="medium" class="mr-3 mb-3" (click)="clear3(design)">
+                                                        <nb-icon icon="minus-circle-outline"></nb-icon>Clear 
+                                                    </button>
+                                                    <button type="submit" nbButton status="danger" (click)="toggle4()" size="medium" class="mb-3">
+                                                        <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                                    </button>
+                                                </div>
+                                            </div> 
+
+
+                                        </div>
+                                    </nb-accordion-item-body>
+                                </nb-accordion-item>
+                            </nb-accordion>
+                            </form>
+                        </nb-card-body>
+                    </nb-card>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- <div class="container text-center">
+        <img [src]="url" height="100"><br>
+        <input type="file" (change)="onselectFile($event)">
+</div> -->

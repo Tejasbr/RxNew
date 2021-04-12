@@ -1,0 +1,105 @@
+
+<div id="Overview">
+    <nb-card class="pb-115">
+        <!-- <h1 class="text-center dsg">Overview</h1> -->
+        <nb-card-header>
+            <div>
+            <span class="title" style="font-size: 18px; letter-spacing: 0.8px;"><nb-icon icon="trending-up-outline" class="mr-2"></nb-icon>Overview</span>
+            </div>
+        </nb-card-header>
+    
+            <div class="container pt-5">
+    
+                    <div class="row" style="width: 100%;">
+                        <div class="col-lg-3">
+    
+                            <nb-card class="div-col1">
+    
+                                <nb-card-header>Order Status</nb-card-header>
+    
+                                    <div class="validation-checkboxes pt-2 pb-2">
+                                        <nb-card-body style="padding-top: 0.5rem; padding-bottom: 0.5rem;"><nb-checkbox status="default">Pending</nb-checkbox></nb-card-body>
+                                        <nb-card-body style="padding-top: 0.5rem; padding-bottom: 0.5rem;"><nb-checkbox status="info">Accepted</nb-checkbox></nb-card-body>
+                                        <nb-card-body style="padding-top: 0.5rem; padding-bottom: 0.5rem;"><nb-checkbox status="danger">Rejected</nb-checkbox></nb-card-body>
+                                        <nb-card-body style="padding-top: 0.5rem; padding-bottom: 0.5rem;"><nb-checkbox status="warning">In Transit</nb-checkbox></nb-card-body>
+                                        <nb-card-body style="padding-top: 0.5rem; padding-bottom: 0.5rem;"><nb-checkbox status="success">Delivered</nb-checkbox></nb-card-body>
+                                    </div>
+    
+                            </nb-card>
+                        </div>
+                        <div class="col-lg-9">
+                            <nb-card style="height: 100%;">
+                                <nb-tabset>
+                                    <nb-tab tabTitle="Daily">
+                                        <div class="row form-inline pt-2 pb-5">
+                                            <div class="col-md-12 col-lg-4 col-xxxl-4 datepicker">
+                                                <input nbInput placeholder="Start Date*" [nbDatepicker]="formpicker" style="width: 100%;">
+                                                <span><nb-icon icon="calendar-outline"></nb-icon></span>
+                                                <nb-datepicker #formpicker (dateChange)="getStartDate($event)"></nb-datepicker>                              
+                                            </div>
+                                            <div class="col-md-12 col-lg-4 col-xxxl-4 datepicker">
+                                                        <!-- <label for="inputDate" class="label col-sm-3 col-form-label">Start Date</label>
+                                                        <input nbInput placeholder="date" [nbDatepicker]="formpicker">
+                                                        <nb-datepicker #formpicker></nb-datepicker> -->
+                                                <input nbInput placeholder="End Date*" [nbDatepicker]="topicker" style="width: 100%;">
+                                                <span><nb-icon icon="calendar-outline"></nb-icon></span>
+                                                <nb-datepicker #topicker [min]="minDate"></nb-datepicker>
+                    
+                                            </div>
+                                            
+                                            <button type="submit" nbButton status="primary" size="medium" class="mr-4 ml-2" style="height: 40px;" status="primary">
+                                                <nb-icon icon="search-outline"></nb-icon>Search
+                                            </button>
+                                            <button type="submit" nbButton status="primary" size="medium" style="height: 40px;" status="default">
+                                                <nb-icon icon="refresh-outline"></nb-icon>Clear
+                                            </button>
+
+                                            <!-- <button type="submit" nbButton status="primary" class="col-sm-1 ml-3" fullWidth>Search</button>
+                                            <button type="submit" nbButton status="default" class="col-sm-1 ml-3" fullWidth>Clear</button> -->
+    
+                                        </div>
+                                        <!-- <div class="margin"> -->
+                                            
+                                                <chart type="line" [data]="data" class="mrg"></chart>
+                                                <!-- </div> -->
+                                    </nb-tab>
+                                    <nb-tab tabTitle="Weekly">
+                                        <span>Content #2</span>
+                                    </nb-tab>
+                                    <nb-tab tabTitle="Monthly">
+                                        <span>Content #3</span>
+                                    </nb-tab>
+                                    <nb-tab tabTitle="Yearly">
+    
+                                    </nb-tab>
+                                    <nb-tab tabTitle="Custom">
+    
+                                    </nb-tab>
+                                </nb-tabset>
+                            </nb-card>
+
+                            <div class="row buttonsClass mb-4">
+                                <div class=" m-auto text-center">
+                                    <button type="submit" nbButton status="info" size="medium"
+                                        class="mr-3 mb-3">
+                                        <nb-icon icon="download-outline"></nb-icon>Download Records
+                                    </button>
+                                    <button type="submit" nbButton status="default" size="medium" class="mr-3 mb-3">
+                                        <nb-icon icon="minus-circle-outline"></nb-icon>Clear
+                                    </button>
+                                    <button type="submit" nbButton status="danger" size="medium" class="mb-3">
+                                        <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                    </button>
+                                    
+    
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+            
+            </div>
+    
+        </nb-card>
+    </div>
+    

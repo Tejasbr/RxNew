@@ -1,0 +1,202 @@
+
+<div id="viewOrders">
+    <nb-card>
+        <nb-card-header style="font-size: 18px; letter-spacing: 0.8px;">
+            <nb-icon icon="eye-outline" class="mr-1"></nb-icon>
+            View Order
+        </nb-card-header>
+
+        <nb-card-body>
+            <div id="vieworderForm" class="row pt-4">
+    
+                <div class="col-sm-6 form-group data-col1">
+                    <label class="col-form-label">Order No</label>
+                    <input type="text" nbInput fullWidth placeholder="Order No" [value]="detailData.orderNo">
+                </div>
+                <div class="col-sm-6 form-group data-col1">
+                    <label class="col-form-label">Order Date</label>
+                    <input type="text" nbInput fullWidth placeholder="Order Date" [value]="detailData.orderDate">
+                </div>
+                <div class="col-sm-6 form-group data-col1">
+                    <label class="col-form-label">NHS No</label>
+                    <input type="text" nbInput fullWidth placeholder="NHS No" [value]="detailData.nhsNo">               
+                </div>
+                <div class="col-sm-6 form-group data-col1">
+                    <label class="col-form-label">Patient Name</label>
+                    <input type="text" nbInput fullWidth placeholder="Patient Name" [value]="detailData.patientName">                 
+                </div>
+    
+            </div>
+    
+        </nb-card-body>
+    
+    
+    </nb-card>
+    
+    <nb-card>
+    <nb-card-body>
+    
+        <div class="container">
+        
+            <div class="row">
+    
+                <table class="table">
+                    <thead>
+                        <tr id="font1" class="trClass">
+                            <th scope="col">Scan BarCode</th>
+                            <th scope="col">Medicine Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col" id="netamt">Net Amount</th>
+                            <th scope="col">Bag Number</th>
+                            <th scope="col">Bag-Wise Qty.</th>
+    
+                        </tr>
+                    </thead>
+                    <tbody id="test-body">
+                        <ng-container *ngFor="let md of detailData.orderLines; let idx = index">
+                            <tr class="trClass wow fadeInDown" data-wow-duration="3s" id="row0">
+                                <td scope="row"><nb-checkbox status="basic"></nb-checkbox></td>
+                                <!-- {{md}} -->
+                                <td>{{md.medicineName}}</td>
+                                <td>{{md.price}}</td>
+                                <td>{{md.qty}}</td>
+                                <td colspan="3">{{md.amount}}</td>
+                                <!-- <td><input type="text" placeholder="enter Bag No."></td> -->
+                                <!-- *ngFor="let ol of md.orderLines; let i = index" -->
+                        <ng-container>
+                            <tr *ngFor="let bd of md.bagDetails; let i = index">
+                                <td *ngIf="hide"><input type="text" nbInput fullWidth placeholder="Bag Number" [ngModel]="bd.bagNo"></td>
+                                <td *ngIf="hide"><input type="text" nbInput fullWidth placeholder="Quantity" [ngModel]="bd.bagQty"></td>
+                                <td class="no-border">
+                                    <a (click)="insertNewRow()" class="plus"  id="add-row">
+                                        <nb-icon icon="plus-outline"></nb-icon>
+                                    </a>
+                                </td>
+                                
+                            </tr>
+
+
+
+                        </ng-container>
+                        <!-- <td><input type="text" placeholder="enter Quantity"></td> -->
+    
+                        <!-- <span style="display:flex;">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-success btn-number sty" data-type="plus"
+                                        data-field="quant[2]">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </span>
+    
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-danger btn-number sty" data-type="minus"
+                                        data-field="quant[2]" (click)=" removeItem(i)">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                </span>
+                            </span> -->
+                        </tr>
+                        </ng-container>
+                    </tbody>
+    
+                </table>
+                <div class=" col-lg-6 col-md-6  col-sm-6 col-xs-12 data-col3 offset-sm-5">
+                    <label for="example-date-input" class=" col-form-label">Total Amount</label>
+                    <input type="text">
+                    <!-- <input type="text" nbInput  id="inputBagName"> -->
+                </div>
+    
+            </div>
+    
+            
+        </div>
+    
+    
+        <div class="container">
+    
+            <div class="row">
+    
+                
+                <div class="col-md-6">
+                    <span class="badge badge-success AcceptOrder">Accept Order</span>
+                    <div class="form-group data-col2">
+                        <label class="col-form-label">No. of Bags*</label>
+                        <input type="text" nbInput id="inputBagName" placeholder="display No. of Bags*" style="width: 100%;">
+                    </div>
+                    <div class="form-group data-col2">
+                        <label class="col-form-label">Courier Driver*</label>
+                        <nb-select placeholder="Select Courier Driver" class="pos6" style="width: 100%;">
+                            <nb-option value="0">courier 1</nb-option>
+                            <!-- <nb-option *ngFor="let membership of membershipOptions; let i = index"
+                                    [value]="membershipOptions[i].id">
+                                    {{membershipOptions[i].name}}
+                                </nb-option> -->
+                            <nb-option value="1">courier 2</nb-option>
+                            <nb-option value="2">courier 3</nb-option>
+                            <!-- <nb-option value="2">Silver</nb-option> -->
+                        </nb-select>
+                        
+                    </div>
+                    <button nbButton status="warning" class="pos1">
+                        <nb-icon icon="save-outline" class="mr-1"></nb-icon>Save
+                    </button>
+                </div>
+    
+                <div class="col-md-6">
+                    <span class="badge badge-danger RejectOrder">Reject Order</span>
+                    <div class="form-group data-col2">
+                        <label class="col-form-label">Enter Reason for Rejection*</label>
+                        <input type="text" nbInput id="inputBagName" placeholder="enter Reason here" style="width: 100%;">
+                    </div>
+                
+                    <button nbButton status="warning" class="pos1">
+                        <nb-icon icon="save-outline" class="mr-1"></nb-icon>Save
+                    </button>
+                </div>
+    
+    
+            </div>
+    
+        <!-- <div class="text-center dsg width1"> -->
+            <!-- <button type="button" class="btn btn-success pos1">Accept Order</button>
+              <button type="button" class="btn btn-danger pos1">Reject Order</button> -->
+    
+            
+            <!-- <label for="inputFirstName" class="label col-sm-3 col-form-label brd2">Reject Order</label> -->
+            <!-- <button nbButton outline status="success" class="pos1">Accept Order</button>
+        <button nbButton outline status="danger" class="pos1">Reject Order</button> -->
+        <!-- </div>
+        <div class="form-group row mrg1"> -->
+            <!-- <div class=" col-lg-6 col-md-6  col-sm-6 col-xs-12 data-col4 mrg"> -->
+            <!-- <label for="example-number-input" class=" col-form-label" >No. of Bags*</label> -->
+    
+    
+            <!-- <label for="inputFirstName" class="label col-sm-3 col-form-label" style="padding-left: 162px;">Enter Reason for
+                Rejection*</label>
+            <div class="full-name-inputs col-sm-3 mrgleft"> -->
+    
+    
+                
+                <!-- <input type="text" placeholder="display No. of Bags*"> -->
+    
+            <!-- </div>
+        </div> -->
+        
+        <!-- <form [formGroup]="ruleDefinitionForm"> -->
+    
+    
+       
+    
+        <div class="text-center dsg mb-3 mt-3">
+            <button nbButton status="danger" class="pos1" size="small" (click)="goToDeshboard()">
+                <nb-icon icon="close-circle-outline" class="mr-1"></nb-icon>Close
+            </button>
+        </div>
+    </div>
+    
+    </nb-card-body>
+    </nb-card>
+    
+    </div>
+    

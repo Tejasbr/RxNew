@@ -1,0 +1,63 @@
+<div class="headerClass">
+    <h5>Points Dashboard</h5>
+</div>
+<hr>
+<div class="row">
+    <div class="rowHeaderClass">
+        <nb-card class="cardsClass">
+            <nb-card-header>Membership Details</nb-card-header>
+        </nb-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <nb-card class="cardsClass">
+            <nb-card-header>Regulations</nb-card-header>
+            <nb-card-body>
+                2,00,000
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-3">
+        <nb-card class="cardsClass">
+            <nb-card-header>Active Users</nb-card-header>
+            <nb-card-body>
+                1,75,000
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-3">
+        <nb-card class="cardsClass">
+            <nb-card-header>Inactive Users</nb-card-header>
+            <nb-card-body>
+                25,000
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-3">
+        <nb-card class="cardsClass">
+            <nb-card-header>Repeat Orders</nb-card-header>
+            <nb-card-body>
+                1,00,000
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+<div>
+    <nb-card>
+        <nb-card-header>Membership Growth</nb-card-header>
+        <nb-card-body>
+            <chart type="line" [data]="membershipGrowthData" [options]="membershipGrowthOption"></chart>
+        </nb-card-body>
+    </nb-card>
+</div>
+
+<div>
+    <nb-card>
+        <nb-card-header>Points Accumulated V/S Points Redeemed</nb-card-header>
+        <nb-card-body>
+            <chart type="bar" [data]="data" [options]="options"></chart>
+        </nb-card-body>
+    </nb-card>
+</div>

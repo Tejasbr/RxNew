@@ -1,0 +1,116 @@
+<div class="headerClass">
+    <h5>Rule Definition</h5>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>Rule Details</nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="ruleDefinitionForm">
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <nb-select placeholder="Select Membership" formControlName="membershipType">
+                                <!-- <nb-option value="0">Select Membership</nb-option> -->
+                                <nb-option *ngFor="let membership of membershipOptions; let i = index"
+                                    [value]="membershipOptions[i].id">
+                                    {{membershipOptions[i].name}}
+                                </nb-option>
+                                <!-- <nb-option value="1">Platinum</nb-option>
+                                <nb-option value="2">Gold</nb-option>
+                                <nb-option value="2">Silver</nb-option> -->
+                            </nb-select>
+                        </div>
+                        <div class="col-sm-6">
+                            <nb-checkbox>Enable Partial Redemption for Rule</nb-checkbox>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="text" nbInput fullWidth id="ruleName" placeholder="Rule Name*"
+                                formControlName="ruleName">
+                        </div>
+                        <div class="col-sm-3">
+                            <input nbInput placeholder="Rule Start Date*" [nbDatepicker]="formpicker"
+                                formControlName="formpicker">
+                            <nb-datepicker #formpicker (dateChange)="getStartDate($event)"></nb-datepicker>
+                        </div>
+                        <div class="col-sm-3">
+                            <input nbInput placeholder="Rule End Date*" [nbDatepicker]="topicker"
+                                formControlName="topicker">
+                            <nb-datepicker #topicker [min]="minDate"></nb-datepicker>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <nb-select placeholder="Points Accumulation Starts" formControlName="pointAccuStars">
+                                <!-- <nb-option value="0">Points Accumulation Starts</nb-option> -->
+                                <nb-option *ngFor="let ruleDefinition of pointsAccumulationStarts; let i = index"
+                                    [value]="pointsAccumulationStarts[i].id">
+                                    {{pointsAccumulationStarts[i].name}}
+                                </nb-option>
+                                <!-- <nb-option value="1">1</nb-option>
+                                <nb-option value="2">2</nb-option>
+                                <nb-option value="3">5</nb-option>
+                                <nb-option value="4">10</nb-option> -->
+                            </nb-select>
+                        </div>
+                        <div class="col-sm-2">
+                            <nb-checkbox checked id="ruleActive" formControlName="ruleActive">Active</nb-checkbox>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <label><b>Points Accumulation Per Transaction</b></label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" nbInput fullWidth id="accuAmount" placeholder="Amount*"
+                                formControlName="accuAmount">
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" nbInput fullWidth id="accuPoints" placeholder="Points*"
+                                formControlName="accuPoints">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <label><b>Points Redemption</b></label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" nbInput fullWidth id="redemptionPoints" placeholder="Points*"
+                                formControlName="redemptionPoints">
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" nbInput fullWidth id="redemptionAmount" placeholder="Amount*"
+                                formControlName="redemptionAmount">
+                        </div>
+                    </div>
+                    <div class="form-group row buttonsClass">
+                        <div class="col-sm-4">
+                            <button type="submit" nbButton status="primary" outline fullWidth>Submit</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="submit" nbButton status="primary" outline fullWidth
+                                (click)="clearSelection()">Clear
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="submit" nbButton status="primary" outline fullWidth>Close</button>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div>
+        <nb-card-header>
+            Membership List
+        </nb-card-header>
+
+        <nb-card-body>
+            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+            </ng2-smart-table>
+        </nb-card-body>
+    </div>
+</div>

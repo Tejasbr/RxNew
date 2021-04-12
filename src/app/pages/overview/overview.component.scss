@@ -1,0 +1,69 @@
+.div-col1{
+  height: auto;
+  width: 100%;
+}
+
+// @import '../../@theme/styles/themes';
+
+
+
+.pos{
+  margin-left: 5%;
+}
+
+@import '../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card-body {
+      display: flex;
+      justify-content: space-between;
+  
+      input {
+        width: 100%;
+      }
+    }
+ngx-chartjs-pie,
+ngx-chartjs-bar,
+ngx-chartjs-line,
+ngx-chartjs-multiple-xaxis,
+ngx-chartjs-bar-horizontal,
+ngx-chartjs-radar {
+  display: block;
+  height: nb-theme(card-height-medium);
+  width: 100%;
+
+  ::ng-deep chart {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+}
+
+.col-lg-3 {
+  flex: 0 0 25%;
+  max-width: 19%;
+  height: min-content;
+}
+
+.mrg{
+  display: block;
+  width: 529px;
+  height: 244px;
+}
+
+// nb-card{
+// height: 132%;
+// }
+.pb-115{
+  padding-bottom: 115px;
+}
+.datepicker{
+  position: relative;
+}
+.datepicker span{
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  color: #8c8cc4;
+}

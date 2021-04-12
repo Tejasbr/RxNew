@@ -1,0 +1,26 @@
+
+ #acceptOrder .badge{
+    padding: 0.9rem 2rem;
+    font-size: 100%;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+}
+#acceptOrder .table {
+    color: #dcdcdc;
+    border: 1px solid #000032;
+    margin: 20px 0;
+}
+#acceptOrder .table thead{
+    background: #604cb3;
+}
+#acceptOrder .table thead th{
+    border-bottom: 1px solid #000032;
+    border-top: none;
+    border-right: 1px solid #000032;
+    color: #fff;
+}
+#acceptOrder .table th,  #acceptOrder .table td{
+    border-top: 1px solid #000032;
+    border-right: 1px solid #000032;
+}

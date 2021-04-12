@@ -1,0 +1,56 @@
+<div class="row">
+
+    <nb-card>
+        <nb-card-header class="cardHeaderClass">Cashback
+            <button nbButton (click)="cancel()" ghost status="danger" class="closeBtnClass">
+                <nb-icon icon="close-outline"></nb-icon>
+            </button>
+        </nb-card-header>
+        <nb-card-body>
+            <form [formGroup]="cashbackForm">
+
+                <div class="form-group row">
+                    <input type="text" nbInput fullWidth id="cashbackCriteria" placeholder="Cashback Criteria"
+                        formControlName="cashbackCriteria">
+                </div>
+
+                <div class="form-group row">
+                    <input type="number" nbInput fullWidth id="cashback" placeholder="Cashback %"
+                        formControlName="cashback">
+                </div>
+
+                <div class="form-group row">
+                    <nb-select placeholder="Applicable" fullWidth formControlName="cashbackType">
+                        <nb-option *ngFor="let at of applicableType; let i = index" [value]="at">
+                            {{at.name}}</nb-option>
+                    </nb-select>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input nbInput placeholder="From Date*" [nbDatepicker]="cashFromDate"
+                            formControlName="cashFromDate">
+                        <nb-datepicker #cashFromDate (dateChange)="getStartDateForCashback($event)"></nb-datepicker>
+                    </div>
+                    <div class="col-sm-6">
+                        <input nbInput placeholder="To Date*" [nbDatepicker]="cashToDate" formControlName="cashToDate">
+                        <nb-datepicker #cashToDate [min]="minDateForCash"></nb-datepicker>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button type="submit" nbButton status="primary" outline fullWidth
+                            (click)="submitCashbackData(cashbackForm.value)">Save</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" nbButton status="primary" outline fullWidth
+                            (click)="clearCashback()">Clear</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </nb-card-body>
+    </nb-card>
+</div>

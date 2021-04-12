@@ -1,0 +1,196 @@
+
+.margin{
+    margin-left: 15%;
+}
+@mixin clearfix() {
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+  
+  // Usage as a mixin
+  .element {
+    @include clearfix;
+  }
+  @import '../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .accordion-container:first-child {
+    margin-bottom: nb-theme(card-margin-bottom);
+  }
+}
+
+// .con
+// {
+//     height: 633px;
+//     opacity: 82%;
+// }
+// .con2
+// {
+//     height: 413px;
+// }
+// .con3
+// {
+//     height: 340px;
+// }
+// .nb_card_head
+// {
+//     display: flex;
+// }
+// .nb_card_head button
+// {
+//     border-radius:100%;
+//      width:40px;
+//      font-size: 35px;
+// }
+
+#nb_card_last{
+    margin-top: -221px;
+    height: 442px;
+}
+
+nb-action {
+    height: auto;
+    display: flex;
+    align-content: center;
+  }
+
+  nb-user {
+    cursor: pointer;
+  }
+
+.profile_input{
+    background: transparent;
+    border:2px solid transparent;
+    float: right;
+
+}
+.theme-options{
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: right;
+    padding: 20px 0;
+div{
+    cursor:pointer;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        margin: 2px 10px;
+        border: 1px solid #fff;
+        display: inline-block;
+        opacity: 0.5;
+        &.active{
+            opacity: 1;
+        }
+    }
+#theme-white{
+    background-color: #eee;
+}
+#theme-blue{
+    background-color: #1e41c1;
+}
+#theme-orange{
+    background-color: #b64b1e;
+}
+#theme-purple{
+    background-color: #7852ae;
+}
+#theme-green{
+    background-color: #5faf3b;
+}
+#theme-black{
+    background-color: #000;
+}
+}
+
+.content.theme-white{
+   
+    nb-card-header{
+        color:#ffffff;
+    }
+    .con
+    {
+        background-color:#ffffff;
+    //    height: auto;
+    }
+    .con nb-accordion-item-body{
+        background-color:#ffffff;
+        
+    }
+    nb-card-body{
+       background-color: #1b1b38;
+   }
+    
+    label{
+        font-size: 15px;
+        color: #000;
+    }
+    input{
+        background-color:  #f7f9fc;
+        color: #000;
+    }
+    
+}
+.content.theme-black{
+    
+    .con
+    {
+        background-color:#222b45;
+    }
+    .con nb-accordion-item-body{
+        background-color:#222b45;
+    }
+    
+    label{
+        font-size: 15px;
+       
+    }
+    input
+    {
+        background-color: #192038;
+    }
+    .nb_card_head
+    {
+        background-color: #222b45;
+    }
+    
+}
+.pos label{
+    margin-top: 19px;
+}
+.userboxShadownone{
+    box-shadow: none;
+}
+.theme-white .accordianCardbody{
+    background-color: #ffffff !important;
+}
+.theme-white .whitebg{
+    background-color: #ffffff !important;
+}
+.whitebg .toggle-label .toggle{
+    border-color: #a16eff !important;
+}
+#createProfile .custom-file-label{
+    color: #fff;
+    background-color: #192038;
+    border: 1px solid #13132b;
+}
+#createProfile .custom-file-label::after{
+    background-color: #a16eff;
+    color: #fff;
+}
+.datepicker{
+    position: relative;
+  }
+  .datepicker span{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    color: #8c8cc4;
+  }
+  
+// img{
+//     border: 2px solid white;
+// }

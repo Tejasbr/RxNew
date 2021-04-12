@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <nb-card>
+            <nb-card-header>Rewards Definition</nb-card-header>
+            <nb-card-body>
+
+                <form [formGroup]="selectionForm">
+                    <div class="form-group row">
+
+                        <div class="col-sm-4">
+                            <nb-select placeholder="Select Membership" fullWidth formControlName="membershipType">
+                                <nb-option *ngFor="let membership of membershipOptions; let i = index"
+                                    [value]="membership">{{membership.name}}
+                                </nb-option>
+                            </nb-select>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <nb-select multiple placeholder="Select Reward Type" fullWidth formControlName="rewardType">
+                                <nb-option *ngFor="let sel of selectOptions; let i = index" [value]="sel">
+                                    {{sel.name}}
+                                </nb-option>
+                            </nb-select>
+                        </div>
+
+                        <div class="col-sm-4 buttonsClass">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button type="submit" nbButton status="primary" outline fullWidth
+                                        (click)="submitSelectionData(selectionForm.value)">Select
+                                    </button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button nbButton status="primary" outline fullWidth (click)="clearSelection()">Clear
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+            </nb-card-body>
+        </nb-card>
+
+    </div>
+</div>

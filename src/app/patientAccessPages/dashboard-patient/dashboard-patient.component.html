@@ -1,0 +1,30 @@
+<nb-card>      
+    <nb-card-header style="font-size: 18px; letter-spacing: 0.8px;">
+        <nb-icon icon="home-outline" class="mr-1"></nb-icon>Patient Dashboard
+    </nb-card-header>
+
+    <nb-card-body> 
+        <div class="row buttonsClass mb-4 mt-5">
+            <div class=" m-auto text-center">
+                <button type="submit" nbButton size="medium" status="primary" class="mr-3 mb-3" (click)= "detailPage()"> 
+                    <nb-icon icon="list-outline"></nb-icon>View last 3 Orders
+                </button>               
+                <button type="submit" nbButton status="warning" size="medium" class="mr-3 mb-3" (click)= "detailPage()">
+                    <nb-icon icon="car-outline"></nb-icon>Track Current Order
+                </button>
+                <button type="submit" nbButton status="info" size="medium" class="mb-3" (click)= "detailPage()">
+                    <nb-icon icon="eye-outline"></nb-icon>View My Order Subscriptions
+                </button>
+                
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class=" m-auto text-center">
+                <button type="submit" nbButton status="danger" size="medium" class="mb-3">
+                    <nb-icon icon="plus-circle-outline"></nb-icon>SOS
+                </button>
+            </div>
+        </div>
+    </nb-card-body>
+
+</nb-card>

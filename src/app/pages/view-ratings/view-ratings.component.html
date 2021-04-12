@@ -1,0 +1,153 @@
+<div id="viewRating">
+
+    <div class="row">
+        <div class="col-md-12">
+            
+            <nb-card>
+    
+                <nb-card-header style="font-size: 18px;">
+                    <nb-icon icon="star-outline" class="pr-1" style="font-size: 24px;"></nb-icon>
+                        Ratings
+                </nb-card-header>
+    
+                <nb-card-body>
+                    <form [formGroup]="datePickerForm" style="width: 100%;">
+                        <!-- <div class="col-sm-12 d-flex">
+                    <input nbInput placeholder="Start Date*" [nbDatepicker]="formpicker" formControlName="formpicker">
+                    <nb-datepicker #formpicker (dateChange)="getStartDate($event)"></nb-datepicker>
+        
+                    <input nbInput placeholder="End Date*" [nbDatepicker]="topicker" formControlName="topicker">
+                    <nb-datepicker #topicker [min]="minDate"></nb-datepicker>
+        
+                    <div class="d-flex">
+                    <button type="submit" nbButton status="primary" class="col-sm-5 pos" outline fullWidth>Search</button>
+        
+                    <button type="submit" nbButton status="primary" class="col-sm-5 pos" outline fullWidth>Clear</button>
+        
+                    </div>
+                </div> -->
+    
+    
+                        <div class="row form-inline">
+    
+                            <div class="col-md-12 col-lg-3 col-xxxl-3 datepicker">
+                                <input nbInput placeholder="Start Date*" [nbDatepicker]="formpicker" formControlName="formpicker">
+                                <span><nb-icon icon="calendar-outline"></nb-icon></span>
+                                <nb-datepicker #formpicker (dateChange)="getStartDate($event)"></nb-datepicker>
+                            </div>
+                            <div class="col-md-12 col-lg-3 col-xxxl-3 datepicker">
+                                      <!-- <label for="inputDate" class="label col-sm-3 col-form-label">Start Date</label>
+                                <input nbInput placeholder="date" [nbDatepicker]="formpicker">
+                                <nb-datepicker #formpicker></nb-datepicker> -->
+    
+                                <input nbInput placeholder="End Date*" [nbDatepicker]="topicker" formControlName="topicker">
+                                <span><nb-icon icon="calendar-outline"></nb-icon></span>
+                                 <nb-datepicker #topicker [min]="minDate"></nb-datepicker>
+                            </div>
+    
+                            <button type="submit" nbButton status="primary" class="col-sm-1 mr-3"><nb-icon icon="search-outline"></nb-icon>Search</button>
+                            <button type="submit" nbButton status="default" class="col-sm-1"><nb-icon icon="refresh-outline"></nb-icon>Clear</button>
+                        </div>
+                        
+                    </form>
+            </nb-card-body>
+            </nb-card>
+    
+        </div>
+    
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card>
+                <nb-card-body>
+                    
+    
+                    <table class="table wow fadeIn mt-4 mb-3">
+    
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">Sr. No.</th>
+                                <th scope="col">Patient NHS No.</th>
+                                <th scope="col">Patient Name</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Order No.</th>
+                                <th scope="col">Order Amount</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Ratings</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+    
+                            <tr *ngFor="let o of viewOrders" class="text-center">
+                                <td>{{o.id}}</td>
+                                <td>{{o.nhsNo}}</td>
+                                <td>{{o.patientName}}</td>
+                                <td>{{o.location}}</td>
+                                <td><a data-toggle="modal" href="#exampleModalCenter">{{o.orderNo}}</a></td>
+                                <td>{{o.netAmount}}</td>
+                                <td>{{o.orderDate}}</td>
+                                <td>
+                                    <fieldset class="rating">
+                                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset>
+                                </td>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+    
+    
+    
+                    
+    
+                    <!-- <ng2-smart-table [settings]="settings" [source]="viewOrders">
+                    </ng2-smart-table> -->
+    
+                </nb-card-body>
+    
+                <div class="row mb-4">
+                    <div class="text-center dsg  m-auto">
+                        <button type="submit" nbButton status="danger" size="small" (click)="close()"><nb-icon icon="close-circle-outline"></nb-icon>Close</button>
+                    </div>
+                </div>
+    
+    
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Patient Feedback Related to Order Number #Order Number#</h4>
+                        </div>
+                        <div class="modal-body pt-4">
+                            <input type="text" nbInput fullWidth id="patientFeedback" placeholder="display Patient Feedback related to Order Number">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" nbButton status="danger" size="small" data-dismiss="modal">
+                                <nb-icon icon="close-circle-outline"></nb-icon>Close
+                            </button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+    
+            </nb-card>
+        </div>
+    </div>
+    
+    </div>
+    
+    

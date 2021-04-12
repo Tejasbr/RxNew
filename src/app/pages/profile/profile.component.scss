@@ -1,0 +1,16 @@
+.datepicker{
+    position: relative;
+  }
+  .datepicker span{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    color: #8c8cc4;
+  }
+  .displayPhoto img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    text-align: center;
+    border: 3px solid #252547;
+  }

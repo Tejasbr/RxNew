@@ -1,0 +1,275 @@
+<!-- <div class="modal modal-dialog-centered fade-scale " id="ImportCustomer" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 25%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="HideModal('ImportCustomer')" aria-hidden="true"></button>
+                <h4 class="modal-title">Import Customers</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="CustomerImportForm">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+
+                                    <div class="fileinput fileinput-new" data-provides="fileinput" style="width: 100%;">
+                                        <label> Attachments*</label>
+
+                                        <ngx-dropzone (change)="onSelect($event)" [multiple]="false"
+                                            class="dropzone dropzone-file-area dz-clickable" id="CustomerImportFile">
+                                            <ngx-dropzone-label style="color: #c152ed;margin-top: 40px;">Drop files here
+                                                or click to upload</ngx-dropzone-label>
+                                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
+                                                (removed)="onRemove(f)">
+                                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                            </ngx-dropzone-preview>
+                                        </ngx-dropzone>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <input type="button" class="btn btn-success" name="" value="Import"
+                                            (click)="ImportCsv()">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+    
+</div> -->
+
+
+<div id="medicineMaster">
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card>
+                <nb-card-header style="font-size: 18px;">
+                    <nb-icon icon="activity-outline" class="pr-2" style="font-size: 25px;"></nb-icon>Medicine Master
+                </nb-card-header>
+                <nb-card-body>
+                    <form [formGroup]="medicineMaster">
+                        <div class="form-group row mt-3">
+
+                            <label for="inputNumber1" class="label col-lg-1 col-form-label">Medicine Id</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="text" nbInput fullWidth id="inputNumber1" placeholder="auto generated"
+                                    formControlName="id" name="id" disabled>
+                            </div>
+
+                            <label for="inputMedName" class="label col-lg-1 col-form-label">Medicine Name</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="text" nbInput fullWidth id="inputMedName" placeholder="enter Med Name"
+                                    formControlName="mediname" name="mediname">
+                            </div>
+                            <label for="inputNumber2" class="label col-lg-1 col-form-label">Strength</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="text" nbInput fullWidth id="inputNumber2" placeholder="enter Med Strength"
+                                    formControlName="strength" name="strength">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <!-- <label for="inputNumber2" class="label col-sm-3 col-form-label">Strength</label>
+                                    <div class="col-sm-9">
+                                      <input type="number" nbInput fullWidth id="inputNumber2" placeholder="enter Med Strength">
+                                    </div> -->
+
+                            <label for="inputPackSize" class="label col-lg-1 col-form-label">Pack Size</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="number" nbInput fullWidth id="inputPackSize" placeholder="enter Pack Size"
+                                    formControlName="size" name="size">
+                            </div>
+
+                            <label for="inputPrice3" class="label col-lg-1 col-form-label">Price</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="number" nbInput fullWidth id="inputPrice3" placeholder="enter Med Price"
+                                    formControlName="price" name="price">
+                            </div>
+                            <label for="inputList" class="label col-lg-1 col-form-label">Type</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <nb-select placeholder="Select Medicine Type" class="pos6"
+                                    style="width: 100%; max-width: 23rem;" formControlName="type" name="type">
+                                    <nb-option *ngFor="let o of medicineTypes" [value]="o.type">{{o.type}}</nb-option>
+
+                                    <nb-option value="1"><a href="#">Add New Type</a></nb-option> 
+
+
+                                </nb-select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row mb-4">
+                            <label for="inputName" class="label col-lg-1 col-form-label">Manufacturer</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="text" nbInput fullWidth id="inputName"
+                                    placeholder="enter Manufacturer's Name" formControlName="manufacturer"
+                                    name="manufacturer">
+                            </div>
+                            <label for="inputCheck" class="label col-lg-1 col-form-label">Status*</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <div class="demo-items">
+                                    <nb-checkbox formControlName="status" name="status" [checked]="true" (change)="setCheckedStatus($event)" >Active</nb-checkbox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row buttonsClass mb-4" *ngFor="let btn of onEvent">
+                            <div class=" m-auto text-center">
+                                <button type="submit" *ngIf="!isHide" nbButton size="medium" status="warning"
+                                    class="mr-3 mb-3" (click)="submitMediData(medicineMaster.value)">
+                                    <nb-icon icon="save-outline"></nb-icon>Submit
+                                </button>
+                                <button type="submit" *ngIf="isHide" nbButton size="medium" status="warning"
+                                    class="mr-3 mb-3" (click)="edit()" [hidden]=btn.updateButton>
+                                    <nb-icon icon="save-outline"></nb-icon>Update
+                                </button>
+                                <button type="submit" nbButton status="default" size="medium" (click)="clearSelection()"
+                                    class="mr-3 mb-3">
+                                    <nb-icon icon="minus-circle-outline"></nb-icon>Clear
+                                </button>
+                                <button type="submit" nbButton status="danger" size="medium" class="mb-3">
+                                    <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                </button>
+                                
+                            </div>
+                        </div>
+
+                        <div class="row buttonsClass mb-4" *ngFor="let btn of onEvent">
+                            <div class=" m-auto text-center" >
+                                <button type="submit" nbButton size="medium" status="info" class="mr-3 mb-3" [hidden]=btn.uploadButton (click)="open(content)">
+                                    <nb-icon icon="upload-outline"></nb-icon>Upload Medicine List
+                                </button>
+                                <button type="submit" nbButton status="primary" size="medium" (click)="DownloadList()"
+                                    class="mr-3 mb-3" [hidden]=btn.downloadButton>
+                                    <nb-icon icon="download-outline"></nb-icon>Download Medicine List
+                                </button>
+                                <!-- <ngx-shared-checked></ngx-shared-checked> -->
+                            </div>
+                        </div>
+
+
+                        
+                    </form>
+                </nb-card-body>
+            </nb-card>
+
+        </div>
+
+        <!-------------------------------------------------- Upload Modal -------------------------------------------------------------------->
+        <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="CustomerImportForm">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+
+                                    <div class="fileinput fileinput-new" data-provides="fileinput" style="width: 100%;">
+                                        <label> Attachments*</label>
+
+                                        <ngx-dropzone (change)="onSelect($event)" [multiple]="false"
+                                            class="dropzone dropzone-file-area dz-clickable" id="CustomerImportFile">
+                                            <ngx-dropzone-label style="color: #c152ed;margin-top: 40px;">Drop files here
+                                                or click to upload</ngx-dropzone-label>
+                                            <ngx-dropzone-preview id="maxlength" *ngFor="let f of files" [removable]="true"
+                                                (removed)="onRemove(f)">
+                                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                            </ngx-dropzone-preview>
+                                        </ngx-dropzone>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <input type="button" class="btn btn-success" name="" value="Import"
+                                            (click)="ImportCsv()">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+            </div>
+          </ng-template>
+
+          <!----------------------------------------------------------- Modal Close -------------------------------------------------------------------------------------->
+        <div class="col-md-12">
+            <nb-card>
+
+                <nb-card-header style="font-size: 18px;">
+                    <nb-icon icon="person-done-outline" class="pr-2" style="font-size: 25px;"></nb-icon>Membership List
+                </nb-card-header>
+
+                <nb-card-body>
+                    <div class="row">
+                        <div class="col-sm-4 bor form-inline mt-2">
+                            <input type="search" nbInput id="search" placeholder="search by Medicine Name" fullwidth>
+                            <button type="submit" nbButton status="primary" class="wdt searchbtn">
+                                <nb-icon icon="search-outline"></nb-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <table class="table wow fadeIn mb-4">
+
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">Id</th>
+                                <th scope="col">medicineId</th>
+                                <th scope="col">medicineName</th>
+                                <th scope="col">strength</th>
+                                <th scope="col">packSize</th>
+                                <th scope="col">price</th>
+                                <th scope="col">type</th>
+                                <th scope="col">manufacturer</th>
+                                <th scope="col">isActive</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr *ngFor="let o of medicineMasterLocal" class="text-center">
+                                <th scope="row">{{o.id}}</th>
+                                <td>{{o.medicineId}}</td>
+                                <td>{{o.medicineName}}</td>
+                                <td>{{o.strength}}</td>
+                                <td>{{o.packSize}}</td>
+                                <td>{{o.price}}</td>
+                                <td>{{o.type}}</td>
+                                <td>{{o.manufacturer}}</td>
+                                <td>{{o.isActive}}</td>
+                                <td *ngFor="let btn of onEvent">
+                                    <nb-icon icon="edit-2-outline" (click)="editValue(o)" disabled [hidden]=btn.editButton></nb-icon>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <!-- (deleteConfirm)="onDeleteConfirm($event)"-->
+
+                    <!-- <ng2-smart-table [settings]="settings" [source]="medicineMaster">
+                </ng2-smart-table> -->
+
+                </nb-card-body>
+
+            </nb-card>
+        </div>
+
+    </div>
+</div>

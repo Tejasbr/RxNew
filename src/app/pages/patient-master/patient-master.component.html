@@ -1,0 +1,214 @@
+<!-- <div class="headerClass">
+    <h5>Patient Registration Master</h5>
+</div> -->
+<div id="patientMaster">
+
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card>
+
+                <nb-card-header style="font-size: 18px;">
+                    <nb-icon icon="thermometer-outline" class="pr-2" style="font-size: 28px;"></nb-icon>Patient
+                    Registration Master
+                </nb-card-header>
+
+                <nb-card-body>
+                    <form [formGroup]="patientMaster">
+
+                        <div class="row form-group mt-3">
+                            <label for="inputNHSNo" class="label col-md-2 col-form-label offset-sm-3">NHS No.*</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputNHSNo" placeholder="Enter NHS No here"
+                                    formControlName="nhsNo" name="nhsNo">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <!-- <label for="inputNumber2" class="label col-sm-3 col-form-label">Strength</label>
+                                        <div class="col-sm-9">
+                                        <input type="number" nbInput fullWidth id="inputNumber2" placeholder="enter Med Strength">
+                                        </div> -->
+                            <label for="inputFirstName" class="label col-md-2 col-form-label">First Name</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputFirstName" placeholder="First Name"
+                                    formControlName="firstName" name="firstName">
+                            </div>
+                            <label for="inputLastName" class="label col-md-2 col-form-label">Last Name</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputLastName" placeholder="Last Name"
+                                    formControlName="lastName" name="lastName">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputAddress" class="label col-md-2 col-form-label">Address</label>
+                            <div class="full-name-inputs col-md-4">
+                                <!-- <input type="text" nbInput >  -->
+                                <textarea nbInput fullWidth placeholder="Full width" placeholder="Address"
+                                    formControlName="address" name="address"></textarea>
+                                <!-- <textarea fullWidth fieldSize="large" id="inputPassword1" placeholder="Address" formControlName="address" name="address"></textarea>                                  -->
+                            </div>
+                            <label for="inputCity" class="label col-md-2 col-form-label">City</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputCity" placeholder="City Name"
+                                    formControlName="city" name="city">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label for="inputCounty" class="label col-md-2 col-form-label">County</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputCounty" placeholder="County"
+                                    placeholder="County Name" formControlName="county">
+                            </div>
+                            <label for="inputCountry" class="label col-md-2 col-form-label">Country</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputCountry" placeholder="Country Name"
+                                    formControlName="country" name="country">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label for="inputPostCode" class="label col-md-2 col-form-label">Post Code</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputPostCode" placeholder="Post Code"
+                                    formControlName="postCode" name="postCode">
+                            </div>
+                            <label for="inputEmail" class="label col-md-2 col-form-label">Email ID</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email ID"
+                                    formControlName="email" name="email">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label for="inputMobNo" class="label col-md-2 col-form-label">Mobile Number</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputMobNo" placeholder="Mobile No."
+                                    formControlName="phoneNo" name="phoneNo">
+                            </div>
+                            <label for="inputDate" class="label col-md-2 col-form-label">Date of Birth</label>
+                            <div class="full-name-inputs col-md-4 datepicker">
+                                <input nbInput placeholder="Date of Birth" [nbDatepicker]="formpicker" fullWidth
+                                    id="inputDate" formControlName="dob" name="dob">
+                                <span>
+                                    <nb-icon icon="calendar-outline"></nb-icon>
+                                </span>
+                                <nb-datepicker #formpicker (dateChange)="getStartDate($event)"></nb-datepicker>
+                                <!-- <input type="date" nbInput fullWidth id="inputDate" placeholder="Date of Birth" formControlName="dob" name="dob"> -->
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label for="inputGender" class="label col-md-2 col-form-label">Gender</label>
+                            <!-- <div class="full-name-inputs col-sm-3"> -->
+
+                            <!-- </div> -->
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <!-- <nb-radio-group > -->
+                                    <input id="male" type="radio" value="male" name="gender" formControlName="gender">
+                                    <label for="male">Male</label>
+                                    <input id="female" type="radio" value="female" name="gender"
+                                        formControlName="gender">
+                                    <label for="female">Female</label>
+                                    <input id="other" type="radio" value="other" name="gender" formControlName="gender">
+                                    <label for="other">Other</label>
+                                    <!-- <nb-radio status="danger" class="ml-3 mt-1 InlineBlock" formControlName="gender" name="gender">Male</nb-radio>
+                                            <nb-radio status="success" class="mt-1 InlineBlock" formControlName="gender" name="gender">Female</nb-radio>
+                                            <nb-radio status="warning" class="mt-1 InlineBlock" formControlName="gender" name="gender">Other</nb-radio> -->
+                                    <!-- </nb-radio-group> -->
+                                </div>
+                            </div>
+
+                            <label for="inputAllergies" class="label col-md-2 col-form-label">Allergies</label>
+                            <div class="full-name-inputs col-md-4">
+                                <input type="text" nbInput fullWidth id="inputAllergies" placeholder="Allergies Name"
+                                    formControlName="allergies" name="allergies">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label for="inputExem" class="label col-md-2 col-form-label">Exemption Type</label>
+                            <div class="full-name-inputs col-md-4">
+
+                                   
+                    
+                                <nb-select placeholder="select" class="pos6" style="max-width: 40rem;"
+                                    formControlName="type" name="type" multiple >
+                                    <nb-option *ngFor="let o of exemptionType" [value]="o.text">{{o.text + o.value}}</nb-option>
+                                </nb-select>
+
+
+
+                                <!-- <select multiple name="type" formControlName="type" ngModel>
+                                        <option *ngFor="let o of exemptionType" [ngValue]="o">
+                                                {{o}}
+                                        </option>
+                                  </select>  -->
+                            </div>
+                            <label for="inputCheck" class="label col-md-2 col-form-label">SMS Notification:</label>
+                            <div class="full-name-inputs col-md-4">
+                                <div class="demo-items">
+                                    <nb-checkbox formControlName="smsNotification" name="smsNotification">Yes
+                                    </nb-checkbox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label for="inputCheck" class="label col-md-2 col-form-label">Email Notification:</label>
+                            <div class="full-name-inputs col-md-4">
+                                <div class="demo-items">
+                                    <nb-checkbox formControlName="emailNotification" name="emailNotification">Yes
+                                    </nb-checkbox>
+                                </div>
+                            </div>
+                            <label for="inputCheck"
+                                class="label col-md-2 col-lg-2 col-xl-2 col-form-label">Status*:</label>
+                            <div class="full-name-inputs col-md-3">
+                                <div class="demo-items">
+                                    <nb-checkbox [checked]="true" formControlName="status" name="status">Active</nb-checkbox>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row buttonsClass mt-5 mb-4">
+                            <div class=" m-auto text-center">
+                                <button type="submit" nbButton size="medium" status="warning" class="mr-3"
+                                    (click)="submitPatientData(patientMaster.value)">
+                                    <nb-icon icon="save-outline"></nb-icon>Submit
+                                </button>
+                                <button type="submit" nbButton status="default" size="medium" (click)="clearSelection()"
+                                    class="mr-3">
+                                    <nb-icon icon="minus-circle-outline"></nb-icon>Clear
+                                </button>
+                                <button type="submit" nbButton status="danger" size="medium">
+                                    <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </nb-card-body>
+            </nb-card>
+
+        </div>
+
+    </div>
+
+</div>

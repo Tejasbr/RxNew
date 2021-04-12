@@ -1,0 +1,202 @@
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+// themes - our custom or/and out of the box themes
+@import 'themes';
+
+// framework component themes (styles tied to theme variables)
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/all';
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
+
+// loading progress bar theme
+@import './pace.theme';
+
+@import './layout';
+@import './overrides';
+
+// @import "~animate.css/animate.css";
+
+// install the framework and custom global styles
+@include nb-install() {
+
+  // framework global styles
+  @include nb-theme-global();
+  @include nb-auth-global();
+
+  @include ngx-layout();
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  @include nb-overrides();
+};
+
+@import '~@nebular/auth/styles/globals';
+
+// ... 
+
+@include nb-install() {
+  @include nb-theme-global();
+  @include nb-auth-global(); // append the install mixin inside of the nb-install
+};
+
+.highlightSubscriptionOrders{
+   background-color: #604cb3 !important;
+  }
+.highlightRegularOrders{
+  background-color: #4e4e77 !important;
+}
+
+// #font{
+//   color: #fff;
+// }
+
+
+
+.nb-theme-default .radio input + span:after{
+  background: #fff !important;
+}
+.nb-theme-default .radio input#orderStatus:checked + span:before{
+  background: #fff !important;
+}
+.nb-theme-default .radio input#orderStatus:checked + span:after{
+  background: #a16eff !important
+}
+.nb-theme-default .radio input#mrg:checked + span:before{
+  background: #fff !important;
+}
+.nb-theme-default .radio input#mrg:checked + span:after{
+  background: #a16eff !important
+}
+.nb-theme-default .radio input#exampleRadios1:checked + span:before{
+  background: #fff !important;
+}
+.nb-theme-default .radio input#exampleRadios1:checked + span:after{
+  background: #a16eff !important
+}
+.nb-theme-default .table{
+  color: #000032 !important;
+}
+.nb-theme-corporate .radio input + span:after{
+  background: #fff !important;
+}
+.nb-theme-corporate .radio input#orderStatus:checked + span:before{
+  background: #fff !important;
+}
+.nb-theme-corporate .radio input#orderStatus:checked + span:after{
+  background: #a16eff !important
+}
+.nb-theme-corporate .radio input#mrg:checked + span:before{
+  background: #fff !important;
+}
+.nb-theme-corporate .radio input#mrg:checked + span:after{
+  background: #a16eff !important
+}
+.nb-theme-corporate .radio input#exampleRadios1:checked + span:before{
+  background: #fff !important;
+}
+.nb-theme-corporate .radio input#exampleRadios1:checked + span:after{
+  background: #a16eff !important
+}
+.nb-theme-corporate .table{
+  color: #000032 !important;
+}
+.nb-theme-dark .radio input + span:after{
+  background: #222b45 !important;
+}
+.nb-theme-dark .radio input#orderStatus:checked + span:before{
+  background: #222b45 !important;
+}
+.nb-theme-dark .radio input#orderStatus:checked + span:after{
+  background: #a16eff !important
+}
+.nb-theme-dark .radio input#mrg:checked + span:before{
+  background: #222b45 !important;
+}
+.nb-theme-dark .radio input#mrg:checked + span:after{
+  background: #a16eff !important
+}
+.nb-theme-dark .radio input#exampleRadios1:checked + span:before{
+  background: #222b45 !important;
+}
+.nb-theme-dark .radio input#exampleRadios1:checked + span:after{
+  background: #a16eff !important
+}
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: transparent;
+}
+.table tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.table tbody tr:nth-of-type(odd) {
+  background-color: transparent;
+}
+.nb-theme-dark .table tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.nb-theme-cosmic .table tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.nb-theme-dark .table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.nb-theme-cosmic .table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+input:focus{
+  outline: none;
+}
+.nb-theme-cosmic .content.theme-black .con{
+  background-color: #323259 !important
+}
+.nb-theme-cosmic .accordianCardbody{
+  background-color: #323259 !important;
+}
+.nb-theme-dark .content.theme-black .con{
+  background-color: #222b45 !important
+}
+.nb-theme-dark .accordianCardbody{
+  background-color: #222b45 !important;
+}
+.content.theme-white .custom-file-label{
+  background: #f7f9fc !important;
+  color: #b4b4db !important;
+}
+.nb-theme-default .content.theme-white .custom-file-label, 
+.nb-theme-corporate .content.theme-white .custom-file-label{
+  border-color: #e4e9f2 !important
+}
+@media only screen and (max-width: 800px) {
+  #nb_card_last{
+      margin-top: 0 !important;
+  }
+}
+.content.theme-black textarea{
+  background-color: #192038 !important;
+}
+.content.theme-white textarea{
+  background-color: #f7f9fc !important;
+}
+.content.theme-white .select-button{
+  background-color: #f7f9fc !important;
+}
+.nb-theme-default .content.theme-black .select-button, 
+.nb-theme-corporate .content.theme-black .select-button{
+    background-color: #192038 !important;
+}
+.nb-theme-default .content.theme-black input, 
+.nb-theme-corporate .content.theme-black textarea{
+    color: #fff !important;
+}
+.nb-theme-default .content.theme-black .select-button, 
+.nb-theme-corporate .content.theme-black .select-button{
+  color: #fff !important;
+}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

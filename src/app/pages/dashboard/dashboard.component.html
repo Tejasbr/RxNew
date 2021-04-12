@@ -1,0 +1,112 @@
+<div class="row" id ="dashboard">
+    <div class="col-md-12">
+
+        <nb-card>
+            <nb-card-header>
+                <div>
+
+                   <span class="title"><nb-icon icon="home-outline"></nb-icon> Dashboard</span>
+                    <input nbInput [placeholder]="dateFromUser" class="datePickerCurrentDtClass" disabled>
+                    <!-- [nbDatepicker]="ngmodel" [(ngModel)]="dateFromUser" -->
+                    <!-- <nb-datepicker #ngmodel (dateChange)="getDashboardDate($event)"></nb-datepicker> -->
+                </div>
+            </nb-card-header>
+
+            <nb-card-body>
+                <div class="col-md-12">
+                    
+
+                    <div class="tab">
+                        <div class="tab-header">
+
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item" *ngFor="let t of ordersTab">
+
+                                    <a class="nav-link" (click)="selectTab(t.statusName)"
+                                        [class.active]="activeTab == t.statusName">{{t.name}}
+                                    </a>
+
+                                </li>
+                            </ul>
+
+                            <div id="allOrders" class="container tab-pane" [class.active]="activeTab == 'allOrders'">
+
+                                <div class="row">
+
+                                    <table class="table table-striped wow fadeIn">
+
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Patient NHS #</th>
+                                                <th scope="col">Patient Name</th>
+                                                <th scope="col">Location</th>
+                                                <th scope="col">Order #</th>
+                                                <th scope="col">Order Amount</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody *ngIf="allOrdersList">
+
+                                            <tr *ngFor="let o of allOrdersList">
+                                                <th scope="row">{{o.id}}</th>
+                                                <td>{{o.nhsNo}}</td>
+                                                <td>{{o.patientName}}</td>
+                                                <td>{{o.location}}</td>
+                                                <td>{{o.orderNo}}</td>
+                                                <td>{{o.netAmount}}</td>
+                                                <td>{{o.status}}</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                <!-- <ng2-smart-table [settings]="settings" [source]="allOrdersList">
+                                </ng2-smart-table> -->
+
+                                <!-- <tr *ngIf="(allOrdersList | json) != '{}'">
+                                                                            <h5>No Records Available</h5>
+                                
+                                                                        </tr> -->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- <ng2-smart-table [settings]="settings" [source]="allOrdersList">
+                    </ng2-smart-table> -->
+
+
+
+                </div>
+
+                <div class="col-md-12">
+                    <div class="subscribe-section">
+                        <label class="labelClass subscriptionClass">Subscription Orders</label>
+                        <label class="labelClass RegularClass">Regular Orders</label>
+                    </div>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+
+        <nb-card>
+            <nb-card-body>
+                <div class="form-group row buttonsClass" *ngFor="let btn of onEvent">
+                    <div class="col-sm" *ngFor="let b of ordersBtn; let i= index" >
+                        <nb-badge [text]="b.count" [status]="b.colorStatus" position="top right" [hidden]=btn.viewOrdersButton>
+                        </nb-badge>
+                        <button type="button" nbButton [status]="b.colorStatus" (click)="moveToOrderList(b.statusName)"
+                            outline fullWidth [hidden]=btn.viewOrdersButton>
+                            {{b.btnName}}
+                        </button>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+
+    </div>
+</div>

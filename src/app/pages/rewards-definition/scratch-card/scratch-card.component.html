@@ -1,0 +1,109 @@
+<div class="row">
+    <nb-card>
+        <nb-card-header class="cardHeaderClass">Scratch Card
+            <button nbButton (click)="cancel()" ghost status="danger" class="closeBtnClass">
+                <nb-icon icon="close-outline"></nb-icon>
+            </button>
+        </nb-card-header>
+        <nb-card-body>
+
+            <form [formGroup]="scratchCardForm">
+
+                <div class="form-group row">
+                    <nb-select placeholder="Applicable" fullWidth formControlName="scratchCardType">
+                        <nb-option *ngFor="let at of applicableType; let i = index" [value]="at">
+                            {{at.name}}</nb-option>
+                        <!-- <nb-option value="0">On Payment</nb-option>
+                        <nb-option value="1">On Recharge</nb-option>
+                        <nb-option value="2">On Point Accumulation</nb-option> -->
+                    </nb-select>
+                </div>
+
+                <div class="form-group row">
+                    <input type="number" nbInput fullWidth id="minTransactAmt" placeholder="Minimum Tansaction Amount"
+                        formControlName="minTransactAmt" required>
+                    <ng-container
+                        *ngIf="scratchCardForm.controls.minTransactAmt.invalid && (scratchCardForm.controls.minTransactAmt.touched || submitted )">
+                        <p class="caption status-danger"
+                            *ngIf="scratchCardForm.controls.minTransactAmt.errors?.required ">
+                            Minimum Amount is required!
+                        </p>
+                        <!-- <p class="caption status-danger"
+                            *ngIf="scratchCardForm.controls.minTransactAmt.errors?.pattern">
+                            To Date should be the grater than From date!
+                        </p> -->
+
+                    </ng-container>
+
+                </div>
+
+                <div class="form-group row">
+                    <input type="number" nbInput fullWidth id="maxTransactAmt" placeholder="Maximum Tansaction Amount"
+                        formControlName="maxTransactAmt" required>
+
+                    <ng-container
+                        *ngIf="scratchCardForm.controls.maxTransactAmt.invalid && scratchCardForm.controls.maxTransactAmt.touched && (scratchCardForm.controls.maxTransactAmt.dirty || submitted)">
+                        <p class="caption status-danger"
+                            *ngIf="scratchCardForm.controls.maxTransactAmt.errors?.required">
+                            Maximum Amount is required!
+                        </p>
+                        <!-- <p class="caption status-danger"
+                            *ngIf="scratchCardForm.controls.maxTransactAmt.errors?.pattern">
+                            To Date should be the grater than From date!
+                        </p> -->
+                    </ng-container>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input nbInput placeholder="From Date" [nbDatepicker]="scratchFromDate"
+                            formControlName="scratchFromDate">
+                        <!-- <ng-container
+                            *ngIf="scratchCardForm.controls.scratchFromDate.invalid && scratchCardForm.controls.scratchFromDate.touched">
+                            <p class="caption status-danger"
+                                *ngIf="scratchCardForm.controls.scratchFromDate.errors?.required">
+                                To date is required!
+                            </p>
+                            <p class="caption status-danger"
+                                *ngIf="scratchCardForm.controls.scratchFromDate.errors?.pattern">
+                                To Date should be the grater than From date!
+                            </p>
+                        </ng-container> -->
+                        <nb-datepicker #scratchFromDate (dateChange)="getStartDateForScratchCard($event)">
+                        </nb-datepicker>
+                    </div>
+                    <div class="col-sm-6">
+                        <input nbInput placeholder="To Date" [nbDatepicker]="scratchToDate"
+                            formControlName="scratchToDate">
+                        <!-- <ng-container
+                            *ngIf="scratchCardForm.controls.scratchToDate.invalid && scratchCardForm.controls.scratchToDate.touched">
+                            <p class="caption status-danger"
+                                *ngIf="scratchCardForm.controls.scratchToDate.errors?.required">
+                                To date is required!
+                            </p>
+                            <p class="caption status-danger"
+                                *ngIf="scratchCardForm.controls.scratchToDate.errors?.pattern">
+                                To Date should be the grater than From date!
+                            </p>
+                        </ng-container> -->
+                        <nb-datepicker #scratchToDate [min]="minDateForScratch"></nb-datepicker>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button type="button" (click)="submitScratchCardData(scratchCardForm.value)" nbButton
+                            status="primary" outline fullWidth>Save</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" nbButton status="primary" outline fullWidth
+                            (click)="clearScratchCard()">Clear</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </nb-card-body>
+    </nb-card>
+</div>

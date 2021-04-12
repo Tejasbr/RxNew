@@ -1,0 +1,190 @@
+<!-- <div class="headerClass">
+    <h5>Courier Master</h5>
+</div> -->
+<div id="courierMaster">
+
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card>
+                <nb-card-header style="font-size: 18px;">
+                    <nb-icon icon="car-outline" class="pr-1" style="font-size: 24px;"></nb-icon>
+                    Courier Master
+                </nb-card-header>
+
+                <nb-card-body>
+                    <form [formGroup]="courierMaster">
+                        
+                        <div class="form-group row mt-3">
+                            <label for="inputFullName" class="label col-sm-2 col-form-label">Full Name</label>
+                            <div class="full-name-inputs col-sm-4">
+                                <input type="text" nbInput fullWidth id="inputFullName"
+                                    placeholder="Full Name" formControlName="fullName" name="fullName">
+                            </div>
+                            <label for="inputEmail" class="label col-sm-2 col-form-label">Email ID</label>
+                            <div class="full-name-inputs col-sm-4">
+                                <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email ID" formControlName="email" name="email">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <!-- <label for="inputNumber2" class="label col-sm-3 col-form-label">Strength</label>
+                                    <div class="col-sm-9">
+                                    <input type="number" nbInput fullWidth id="inputNumber2" placeholder="enter Med Strength">
+                                    </div> -->
+                            <label for="inputPassword1" class="label col-sm-2 col-form-label">Password</label>
+                            <div class="full-name-inputs col-sm-4">
+                                <input type="password" nbInput fullWidth id="inputPassword1"
+                                    placeholder="Password" formControlName="password" name="password">
+                            </div>
+                            <label for="inputConfPassword1" class="label col-sm-2 col-form-label">Re-Enter
+                                Password</label>
+                            <div class="full-name-inputs col-sm-4">
+                                <input type="password" nbInput fullWidth id="inputConfPassword1"
+                                    placeholder="Re-Enter Password" formControlName="passwordRe" name="passwordRe">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPhoneNo" class="label col-sm-2 col-form-label">Phone No.</label>
+                            <div class="full-name-inputs col-sm-4">
+                                <input type="text" nbInput fullWidth id="inputPhoneNo"
+                                    placeholder="Phone No." formControlName="phoneNo" name="phoneNo">
+                            </div>
+                            <label for="inputLicenceNo" class="label col-sm-2 col-form-label">Driving License No.</label>
+                            <div class="full-name-inputs col-sm-4">
+                                <input type="text" nbInput fullWidth id="inputLicenceNo"
+                                    placeholder="Driving License No." formControlName="LicenseNo" name="LicenseNo">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputRegNo" class="label col-sm-2 col-form-label">Vehicle Reg No.</label>
+                            <div class="full-name-inputs col-sm-4">
+                                <input type="text" nbInput fullWidth id="inputRegNo" placeholder="Vehicle Reg No." formControlName="vehRegNo" name="vehRegNo">
+                            </div>
+                            <label for="inputCheck" class="label col-sm-2 col-form-label">Status*</label>
+                            <div class="full-name-inputs col-sm-3">
+                                <div class="demo-items">
+                                    <!-- <nb-checkbox [checked]="true">Active</nb-checkbox> -->
+                                    <nb-checkbox formControlName="status" name="status">Active</nb-checkbox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row buttonsClass mb-4 mt-5">
+                            <div class=" m-auto text-center">
+                                <button type="submit" nbButton size="medium" status="warning" class="mr-3 mb-2" (click)="submitCourierData(courierMaster.value)">
+                                    <nb-icon icon="save-outline"></nb-icon>Submit
+                                </button>
+                                <button type="submit" nbButton status="default" size="medium" (click)="clearSelection()"
+                                    class="mr-3 mb-2">
+                                    <nb-icon icon="minus-circle-outline"></nb-icon>Clear
+                                </button>
+                                <button type="submit" nbButton status="danger" size="medium" class="mb-2">
+                                    <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row buttonsClass mt-4 mb-4">
+                            <div class=" m-auto text-center">
+                                <button type="submit" nbButton size="medium" status="info" class="mr-3 mb-2">
+                                    <nb-icon icon="upload-outline"></nb-icon>Upload Employee List
+                                </button>
+                                <button type="submit" nbButton status="primary" size="medium" (click)="clearSelection()"
+                                    class="mr-3 mb-2">
+                                    <nb-icon icon="download-outline"></nb-icon>Download Employee List
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </nb-card-body>
+            </nb-card>
+
+        </div>
+
+        <div class="col-md-12">
+
+            <nb-card>
+                <nb-card-header style="font-size: 18px;">
+                    <nb-icon icon="person-done-outline" class="pr-2" style="font-size: 25px;"></nb-icon>Membership List
+                </nb-card-header>
+
+                <nb-card-body>
+
+                    <div class="row">
+                        <div class="col-sm-3 form-inline searchInput">
+                            <input nbInput id="search" class="search-input" placeholder="search by Name"
+                                style="width: 100%; max-width: 22rem;">
+                            <span>
+                                <nb-icon icon="search-outline"></nb-icon>
+                            </span>
+                        </div>
+                        <label for="inputList" class="label col-sm-1 col-form-label">Status:</label>
+                        <div class="full-name-inputs col-sm-2">
+                            <nb-select placeholder="select" class="pos6" style="max-width: 13rem;">
+                                <nb-option value="0">Active</nb-option>
+                                <!-- <nb-option *ngFor="let membership of membershipOptions; let i = index"
+                                                                            [value]="membershipOptions[i].id">
+                                                                            {{membershipOptions[i].name}}
+                                                                        </nb-option> -->
+                                <nb-option value="1">Inactive</nb-option>
+                            </nb-select>
+
+                        </div>
+
+                        <button type="submit" nbButton status="primary" size="medium" class="mr-4" style="height: 40px;"
+                            status="primary">
+                            <nb-icon icon="search-outline"></nb-icon>Search
+                        </button>
+                        <button type="submit" nbButton status="primary" size="medium" style="height: 40px;"
+                            status="default">
+                            <nb-icon icon="refresh-outline"></nb-icon>Clear
+                        </button>
+                    </div>
+
+                    <table class="table wow fadeIn mb-4">
+
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">Driver ID</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Email ID</th>
+                                <th scope="col">Phone No</th>
+                                <th scope="col">Vehicle Reg No</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr *ngFor="let o of courierDriverMaster" class="text-center">
+                                <td>{{o.driverId}}</td>
+                                <td>{{o.name}}</td>
+                                <td>{{o.email}}</td>
+                                <td>{{o.contactNo}}</td>
+                                <td>{{o.drivingLicenseNo}}</td>
+                                <td>{{o.isActive}}</td>
+                                <td>
+                                    <nb-icon icon="edit-2-outline"></nb-icon>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <!-- <ng2-smart-table [settings]="settings" [source]="courierDriverMaster" >
+                        </ng2-smart-table> -->
+
+
+                </nb-card-body>
+            </nb-card>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,254 @@
+<div id="placeOrder">
+    <nb-card>
+
+        <nb-card-header style="font-size: 18px; letter-spacing: 0.8px;">
+            <nb-icon icon="shopping-cart-outline" class="mr-1"></nb-icon>Place an Order
+        </nb-card-header>
+
+        <nb-card-body>
+            <form>
+                <div class="col-lg-10 offset-1">
+
+                    <div class="form-group row">
+                    
+                    <div class="col-lg-6">
+
+                        <div class="col-lg-12">
+                            <label for="inputNumber1" class="label col-form-label">Upload Prescription</label>
+                        </div>
+
+                        <div class="full-name-inputs col-lg-12">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="profile_photo" placeholder="Photo"
+                                formControlName="attachPhoto"
+                                name="attachPhoto">
+                                <label class="custom-file-label" for="customFile">Upload Prescription</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="col-lg-12">
+                                <label for="inputMedName" class="label col-form-label">Delivery Address</label>
+                        </div>
+
+                        <div class="full-name-inputs col-lg-12">
+                            <textarea nbInput fullWidth placeholder="Pharmacy Address" formControlName="inputAddress" id="inputAddress"></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" nbButton status="info" size="medium" class="mb-3 mt-3 mr-3">
+                                <nb-icon icon="swap-outline" class="mr-1"></nb-icon>Change Delivery Address
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 form-group">
+                        <div class="row pl-3 pr-3">
+
+                            <label for="inputNumber1" class="label col-lg-2 col-form-label">Search Medicines</label>
+                            <div class="full-name-inputs col-lg-4 searchMedicine">
+                                <input type="text" nbInput fullWidth id="inputNumber1" placeholder="Employee Id" formControlName="id" name="id">
+                                <span><nb-icon icon="search-outline"></nb-icon></span>
+                            </div>
+
+                        <label for="inputFirstName" class="label col-lg-2 col-form-label">Enter Quantity</label>
+                        <div class="full-name-inputs col-lg-4">
+                            <input type="text" nbInput fullWidth id="enterQuantity" placeholder="Enter Quantity" formControlName="enterQuantity" name="enterQuantity">
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+
+                        <div class="row buttonsClass mt-4">
+                            <div class="m-auto text-center">
+                                <button type="submit" nbButton size="medium" status="warning" class="mr-3 mb-2">
+                                    <nb-icon icon="save-outline"></nb-icon>Save To Grid
+                                </button>
+                                <button type="submit" nbButton status="default" size="medium" class="mr-3 mb-2">
+                                    <nb-icon icon="minus-circle-outline"></nb-icon>Clear
+                                </button>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    </div>
+
+
+                </div>
+            </form>
+        </nb-card-body>
+
+
+       
+
+        <nb-card-body style="padding: 0px;">
+
+            <div class="newSubscriptionHeading">
+                <nb-icon icon="plus-outline" class="mr-1"></nb-icon>Medicine Added
+            </div>
+
+        <div class="pl-4 pr-4 pb-4">
+            <table class="table mt-4" style="margin: 5px;">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Sr. No</th>
+                        <th scope="col">Medicine Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th> 
+                        <th scope="col">Net Amount</th>
+                        <th scope="col">Action</th>            
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="text-center">
+                        <td>1</td>
+                        <td>Paracetamol 625 mg (28)</td>
+                        <td>20.00</td>
+                        <td>5</td>
+                        <td>100.00</td>
+                        <td>
+                            <nb-icon icon="edit-outline" class="mr-2" status="info"></nb-icon>
+                            <nb-icon icon="trash-outline" class="mr-2" status="danger"></nb-icon>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>1</td>
+                        <td>Paracetamol 625 mg (28)</td>
+                        <td>20.00</td>
+                        <td>5</td>
+                        <td>100.00</td>
+                        <td>
+                            <nb-icon icon="edit-outline" class="mr-2" status="info"></nb-icon>
+                            <nb-icon icon="trash-outline" class="mr-2" status="danger"></nb-icon>
+                        </td>
+                    </tr>
+                    </tbody>
+                
+            </table>
+
+            <div class="row">
+                <div class="offset-sm-8">
+                    <div class="totalAmount">Total Amount</div>
+                    <div class="totalPrice">180.00</div>
+                </div>
+            </div>
+
+            <div class="row buttonsClass mt-4">
+                <div class="m-auto text-center">
+                    <button type="submit" nbButton size="medium" status="primary" class="mr-3 mb-2" id="addBasket">
+                        <nb-icon icon="shopping-cart-outline"></nb-icon>Add To basket
+                    </button>
+                    <button type="submit" nbButton status="danger" size="medium" class="mr-3 mb-2">
+                        <nb-icon icon="close-circle-outline"></nb-icon>Close
+                    </button>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </nb-card-body>
+
+        <div id="viewConfirmorder">
+            <nb-card-body style="padding: 0px;">
+
+                    <div class="newSubscriptionHeading">
+                        <nb-icon icon="plus-outline" class="mr-1"></nb-icon>View Basket & Confirm Order
+                    </div>
+
+                <div class="pl-4 pr-4 pb-4">
+                    <table class="table mt-4" style="margin: 5px;">
+                        <thead>
+                        <tr class="text-center">
+                            <th scope="col">Sr. No</th>
+                            <th scope="col">Medicine Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th> 
+                            <th scope="col">Net Amount</th>
+                            <th scope="col">Action</th>            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="text-center">
+                            <td>1</td>
+                            <td>Paracetamol 625 mg (28)</td>
+                            <td>20.00</td>
+                            <td>5</td>
+                            <td>100.00</td>
+                            <td>
+                                <nb-icon icon="trash-outline" class="mr-2" status="danger"></nb-icon>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>1</td>
+                            <td>Paracetamol 625 mg (28)</td>
+                            <td>20.00</td>
+                            <td>5</td>
+                            <td>100.00</td>
+                            <td>
+                                <nb-icon icon="trash-outline" class="mr-2" status="danger"></nb-icon>
+                            </td>
+                        </tr>
+                        </tbody>
+                        
+                    </table>
+
+                    <div class="row">
+                        <div class="offset-sm-8">
+                            <div class="totalAmount">Total Amount</div>
+                            <div class="totalPrice">180.00</div>
+                        </div>
+                    </div>
+
+                    <div class="row buttonsClass mt-4">
+                        <div class="m-auto text-center">
+                            <button type="submit" nbButton size="medium" status="info" class="mr-3 mb-2" data-toggle="modal" data-target="#myModal">
+                                <nb-icon icon="checkmark-circle-2-outline"></nb-icon>Confirm Order
+                            </button>
+                            <button type="submit" nbButton size="medium" status="warning" class="mr-3 mb-2">
+                                <nb-icon icon="arrow-circle-left-outline"></nb-icon>Go Back to Basket
+                            </button>
+                            <button type="submit" nbButton status="danger" size="medium" class="mr-3 mb-2">
+                                <nb-icon icon="close-circle-outline"></nb-icon>Close
+                            </button>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </nb-card-body>
+
+
+            <div class="modal fade" id="myModal" role="dialog" style="opacity: 1;">
+                <div class="modal-dialog">
+                
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title"><nb-icon icon="checkmark-circle-2-outline" class="mr-1"></nb-icon>Order Confirmed Successfully</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>
+                          Your Order Number has been confirmed with Order Number<br>
+                          <b>#Order Number#</b>
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" nbButton size="small" status="info" data-dismiss="modal">Ok</button>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+
+        </div>
+
+    </nb-card>
+</div>

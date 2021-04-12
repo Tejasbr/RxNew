@@ -1,0 +1,188 @@
+<!-- <div class="headerClass">
+    <h5>Patient Master</h5>
+</div> -->
+<div id="pharanmacyEmployee">
+
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card>
+                <nb-card-header style="font-size: 18px;">
+                    <nb-icon icon="briefcase-outline" class="pr-1" style="font-size: 30px;"></nb-icon>
+                        Pharmacy Employee Master
+                    </nb-card-header>
+    
+                <nb-card-body>
+                    <form [formGroup]="pharmaMaster">
+                        <div class="form-group row mt-3">
+                             <label for="inputNumber1" class="label col-lg-1 col-form-label">Employee Id</label>
+                             <div class="full-name-inputs col-lg-3">
+                                <input type="text" nbInput fullWidth id="inputNumber1" placeholder="Employee Id" formControlName="id" name="id">
+                            </div>
+    
+                            <label for="inputFirstName" class="label col-lg-1 col-form-label">First Name</label>
+                            <div class="full-name-inputs col-lg-3">
+                               <input type="text" nbInput fullWidth id="inputFirstName" placeholder="First Name" formControlName="firstName" name="firstName">
+                            </div>
+                            <label for="inputLastName" class="label col-lg-1 col-form-label">Last Name</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="text" nbInput fullWidth id="inputLastName" placeholder="Last Name" formControlName="lastName"
+                                name="lastName">
+                            </div>
+                        </div>
+    
+                        <div class="form-group row">
+                                    <!-- <label for="inputNumber2" class="label col-sm-3 col-form-label">Strength</label>
+                                    <div class="col-sm-9">
+                                      <input type="number" nbInput fullWidth id="inputNumber2" placeholder="enter Med Strength">
+                                    </div> -->
+                                    
+                            <label for="inputEmail" class="label col-lg-1 col-form-label">Email ID</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email ID" formControlName="email" name="email">
+                            </div>
+    
+                            <label for="inputPassword1" class="label col-lg-1 col-form-label">Password</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="password" nbInput fullWidth id="inputPassword1" placeholder="Password" formControlName="password"
+                                name="password">
+                            </div>
+    
+                            <label for="inputConfPassword1" class="label col-lg-1 col-form-label">Confirm Password</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <input type="password" nbInput fullWidth id="inputConfPassword1" placeholder="Confirm Password" formControlName="passwordConf" name="passwordConf">
+                            </div>
+    
+                        </div>
+    
+                        <div class="form-group row">
+                            <label for="inputList" class="label col-lg-1 col-form-label">User Type*</label>
+                            <div class="full-name-inputs col-lg-3">
+                                 <nb-select placeholder="select"  class="pos6" style="width: 100%; max-width: 23rem;" formControlName="type" name="type">
+                                    <nb-option *ngFor="let o of userTypes" [value]="o">{{o}}</nb-option>
+                                                    
+                                </nb-select>
+                                            
+                            </div> 
+                            <label for="inputCheck" class="label col-lg-1 col-form-label">Status*</label>
+                            <div class="full-name-inputs col-lg-3">
+                                <div class="demo-items">
+                                    <!-- <nb-checkbox [checked]="true">Active</nb-checkbox> -->
+                                    <nb-checkbox formControlName="status" name="status">Active</nb-checkbox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row buttonsClass mb-4 mt-5" *ngFor="let btn of onEvent">
+                            <div class=" m-auto text-center">
+                                <button type="submit" *ngIf="!isHide" nbButton size="medium" status="warning" class="mr-3 mb-2"  (click)="submitPharmaData(pharmaMaster.value)">
+                                    <nb-icon icon="save-outline"></nb-icon>Submit
+                                </button>
+                                <button type="submit" *ngIf="isHide" nbButton size="medium" status="warning"
+                                    class="mr-3 mb-3"  [hidden]=btn.updateButton>
+                                    <nb-icon icon="save-outline"></nb-icon>Update
+                                </button>
+                                <button type="submit" nbButton status="default" size="medium"  (click)="clearSelection()" class="mr-3 mb-2">
+                                    <nb-icon icon="minus-circle-outline"></nb-icon>Clear 
+                                </button>
+                                <button type="submit" nbButton status="danger" size="medium" class="mb-2">
+                                    <nb-icon icon="close-circle-outline"></nb-icon>Close
+                                </button>
+                                
+                            </div>
+                        </div> 
+
+                        <div class="row buttonsClass mt-4 mb-4"  *ngFor="let btn of onEvent">
+                            <div class=" m-auto text-center">
+                                <button type="submit" nbButton size="medium" status="info" class="mr-3 mb-2" [hidden]=btn.uploadButton>
+                                    <nb-icon icon="upload-outline"></nb-icon>Upload Employee List
+                                </button>
+                                <button type="submit" nbButton status="primary" size="medium"  (click)="clearSelection()" class="mr-3 mb-2" [hidden]=btn.downloadButton>
+                                    <nb-icon icon="download-outline"></nb-icon>Download Employee List
+                                </button>
+                                
+                            </div>
+                        </div>
+                            
+                    </form>
+                </nb-card-body>
+            </nb-card>
+           
+            </div>
+        </div>
+    
+        <nb-card>
+    
+    
+    
+       
+    
+            <nb-card-header style="font-size: 18px;">
+                <nb-icon icon="person-done-outline" class="pr-2" style="font-size: 25px;"></nb-icon>Membership List
+            </nb-card-header>
+            
+            <nb-card-body>
+            
+            <div class="row">
+                <div class="col-lg-3 form-inline searchInput">
+                    <input nbInput  id="search" class="search-input" placeholder="search by Name" style="width: 100%; max-width: 22rem;">
+                    <span><nb-icon icon="search-outline"></nb-icon></span>
+                </div>
+                <label for="inputList" class="label col-lg-1 col-form-label">Status:</label>
+                <div class="full-name-inputs col-lg-2">
+                    <nb-select placeholder="select"  class="pos6" style="max-width: 13rem;">
+                        <nb-option value="0">Active</nb-option>
+                                                    <!-- <nb-option *ngFor="let membership of membershipOptions; let i = index"
+                                                                [value]="membershipOptions[i].id">
+                                                                {{membershipOptions[i].name}}
+                                                            </nb-option> -->
+                        <nb-option value="1">Inactive</nb-option> 
+                    </nb-select>
+                                            
+                </div> 
+                
+                <div class="searchSection">
+                    <button type="submit" nbButton status="primary" size="medium" class="mr-4" style="height: 40px;" status="info">
+                        <nb-icon icon="search-outline"></nb-icon>Search
+                    </button>
+                    <button type="submit" nbButton status="primary" size="medium" style="height: 40px;" status="default">
+                        <nb-icon icon="refresh-outline"></nb-icon>Clear
+                    </button>
+                </div>  
+                
+            </div> 
+            
+            <table class="table wow fadeIn mb-4">
+    
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Employee Id</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+    
+                    <tr *ngFor="let o of pharmacyMaster" class="text-center">
+                        <td>{{o.employeeId}}</td>
+                        <td>{{o.firstName}}</td>
+                        <td>{{o.lastName}}</td>
+                        <td>{{o.email}}</td>
+                        <td>{{o.isActive}}</td>
+                        <td *ngFor="let btn of onEvent"><nb-icon icon="edit-2-outline" [hidden]=btn.editButton (click)="editValue(o)"></nb-icon></td>
+                    </tr>
+    
+                </tbody>
+            </table>
+            
+                <!-- <ng2-smart-table [settings]="settings" [source]="pharmacyMaster" (deleteConfirm)="onDeleteConfirm($event)">
+                </ng2-smart-table> -->
+    
+            </nb-card-body>
+    
+        </nb-card>
+    
+    </div>

@@ -1,0 +1,126 @@
+
+<div id="deliveryOrder">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <nb-card>              
+                <nb-card-header style="font-size: 18px; letter-spacing: 0.8px;">
+                    <nb-icon icon="car-outline" class="mr-1"></nb-icon>View Delivered Orders
+                </nb-card-header>
+    
+                <nb-card-body>
+                    <div class="table-rsponsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">srNo</th>
+                                    <th scope="col">patientNHSNo</th>
+                                    <th scope="col">patientName</th>
+                                    <th scope="col">location</th>
+                                    <th scope="col">Order No.</th>
+                                    <th scope="col">Order Amount</th>
+                                    <th scope="col">Assigned Courier</th>
+                                    <th scope="col">No. of Bags</th>
+                                    <th scope="col">Payment Mode</th>
+                                    <th scope="col">Delivery Date & Time</th>
+                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of item" class="wow fadeInDown" data-wow-duration="3s" id="font">
+                                    <th scope="row">{{data.id}}</th>
+                                    <td>{{data.nhsNo}}</td>
+                                    <td>{{data.patientName}}</td>
+                                    <td>{{data.location}}</td>
+                                    <td><a href="javascript:void(0)" [value]="data.orderNo" (click)="displayData($event)" >{{data.orderNo}}</a></td>
+                                    <td>{{data.netAmount}}</td>
+                                    <td>{{data.currierAgentName}}</td>
+                                    <td>{{data.bags}}</td>
+                                    <td>{{data.paymentMode}}</td>
+                                    <td>{{data.deliveredOn | date}}</td>
+                                    <!-- <td>{{data.deliveredOn | date}}</td> -->
+                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                    
+                    <div *ngIf="isHide">
+                    <div class="container" id="mrg3" *ngFor = "let data of OrdersByStatus">
+                        <div class="form-group row">
+                            <div class=" col-lg-6 col-md-6  col-sm-6 col-xs-12 data-col1">
+                                <label for="example-number-input" class=" col-form-label">Order No </label>
+                                <!-- <textarea>{{data.orderNo}}</textarea> -->
+                                <input type="text"  value="{{data.orderNo}}">
+                            </div>
+                    
+                            <div class=" col-lg-6 col-md-6  col-sm-6 col-xs-12 data-col1">
+                                <label for="example-date-input" class=" col-form-label">Order Date</label>
+                                
+                                <input type="text"  value="{{data.deliveredOn | date}}">
+                            </div>
+                            <div class=" col-lg-6 col-md-6  col-sm-6 col-xs-12 data-col1">
+                                <label for="example-number-input" class=" col-form-label">NHS No </label>
+                                <input type="text"  value="{{data.nhsNo}}">
+                                
+                            </div>
+                    
+                            <div class=" col-lg-6 col-md-6  col-sm-6 col-xs-12 data-col1">
+                                <label for="example-date-input" class=" col-form-label">Patient Name</label>
+                            
+                                <input type="text"  value="{{data.patientName}}">
+                            </div>
+                    
+                        </div>
+                    </div>
+                    <div class="container" id="mrg2">
+                            <table class="table" style="margin: 20px 0 0;">
+                                <thead>
+                                <tr id="font1">
+                                    <th scope="col">Sr No.</th>
+                                    <th scope="col">Medicine Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col" id="netamt">Net Amount</th>
+                            
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let data of MedicineTabelDelivered" class="wow fadeInDown" data-wow-duration="3s" id="font">
+                                    <!-- <th scope="row">{{data.srno}}</th> -->
+                                    <td>{{data.srno}}</td>
+                                    <td>{{data.MediName}}</td>
+                                    <td>{{data.Price}}</td>
+                                    <td>{{data.Quantity}}</td>
+                                    <td>{{data.NetAmount}}</td>
+                                </tr>
+                            
+                                </tbody>
+                                
+                            </table>
+                            <div class="row">
+                    
+                                    <div class=" col-lg-6 col-md-6  col-sm-6 col-xs-12 data-col3 offset-sm-6">
+                                            <label for="example-date-input" class=" col-form-label" >Total Amount</label>
+                                            <input type="text">
+                                    </div>
+                    
+                            </div>
+                        </div>
+                        <div class="text-center pb-4 mt-5">
+                            <button nbButton status="danger" size="small" (click)="GoToDesk()">
+                                <nb-icon icon="close-circle-outline" class="mr-1"></nb-icon>Close
+                            </button>
+                        </div>
+                    </div>
+
+                </nb-card-body>
+
+        </nb-card>
+
+</div>
+</div>
+
+</div>

@@ -1,0 +1,93 @@
+.headerClass {
+  text-align: center;
+}
+.form-group.row.buttonsClass {
+  text-align: center;
+}
+nb-checkbox {
+  margin-bottom: 1rem;
+}
+
+.form-inline [fullWidth] {
+  flex: 1;
+}
+
+.form-inline > * {
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+nb-card.inline-form-card nb-card-body {
+  padding-bottom: 0;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.col-sm-4 {
+  flex: 0 0 33.333333%;
+  max-width: 55.333333%;
+}
+.margin{
+  margin-left: 15%;
+}
+.margin1{
+  margin-left: 19.50%;
+}
+.bor input{
+  border-radius: 20px;
+}
+.wdt{
+  width:140%;
+}
+
+#medicineMaster .table {
+color: #dcdcdc;
+border: 1px solid #000032;
+margin: 0;
+}
+#medicineMaster  .table thead{
+background: #604cb3;
+}
+#medicineMaster .table thead th{
+border-bottom: 1px solid #000032;
+border-top: none;
+border-right: 1px solid #000032;
+color: #fff;
+}
+#medicineMaster  .table th,  #medicineMaster  .table td{
+border-top: 1px solid #000032;
+border-right: 1px solid #000032;
+}
+#search{
+position: relative;
+border-radius: 6px !important;
+}
+.searchbtn{
+position: absolute;
+top: 0;
+right: 120px;
+width: 45px;
+height: 40px;
+border-radius: 0px 6px 6px 0px !important;
+}
+@media only screen and (max-width: 1024px) {
+  .searchbtn{
+    right: -28px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .searchbtn{
+    right: -115px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .searchbtn{
+    right: -140px;
+  }
+}
+
+
+#maxlength
+{
+  max-width:100% !important;
+}

@@ -1,0 +1,83 @@
+#placeOrder .custom-file-label{
+    color: #fff;
+    background-color: #192038;
+    border: 1px solid #13132b;
+}
+#placeOrder .custom-file-label::after{
+    background-color: #a16eff;
+    color: #fff;
+}
+.searchMedicine{
+    position: relative;
+}
+.searchMedicine span{
+    position: absolute;
+    right: 25px;
+    top: 7px;
+    color: #7070ab;
+    font-size: 30px;
+}
+.newSubscriptionHeading{
+    width: 100%; 
+    border-bottom: 1px solid #1b1b38;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    padding: 1rem 1.5rem;
+    font-size: 18px;
+  }
+  #placeOrder .table {
+    color: #dcdcdc;
+    border: 1px solid #000032;
+    margin: 20px 0;
+  }
+  #placeOrder .table thead{
+    background: #604cb3;
+  }
+  #placeOrder .table thead th{
+    border-bottom: 1px solid #000032;
+    border-top: none;
+    border-right: 1px solid #000032;
+    color: #fff;
+  }
+  #placeOrder .table th,  #placeOrder .table td{
+    border-top: 1px solid #000032;
+    border-right: 1px solid #000032;
+  }
+  #viewConfirmorder{
+      display: none;
+  }
+  .totalAmount{
+    background-color: #0095ff;
+    border-color: #0095ff;
+    text-align: center;
+    color: #fff;
+    padding: 8px 25px;
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+  }
+  .totalPrice{
+      background: #fff;
+      color: #000;
+      text-align: center;
+      padding: 8px 35px;
+      font-weight: 600;
+      display: inline-block;
+      letter-spacing: 0.8px;
+  }
+  #placeOrder .modal{
+    background: rgba(0, 0, 0, 0.5);
+  }
+  #placeOrder .modal.fade .modal-dialog {
+    transform: translate(0, 0px);
+}
+#placeOrder h4{
+    color: #000;
+    font-size: 18px;
+}
+#placeOrder p{
+    color: #111;
+}
+#placeOrder .modal-footer{
+    justify-content: center;
+}

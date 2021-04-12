@@ -1,0 +1,109 @@
+<div id="pendingOrder">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div *ngIf="statusByOrder === 'Pending'">
+                <nb-card>      
+                    <nb-card-header style="font-size: 18px; letter-spacing: 0.8px;">
+                        <nb-icon icon="pause-circle-outline" class="mr-1"></nb-icon>
+                            View Pending Orders
+                    </nb-card-header>
+
+                    <nb-card-body>   
+                        <table class="table table-striped wow fadeIn">
+                    
+                            <thead>
+                                <tr class="trClass">
+                                    <th scope="col">#</th>
+                                    <th scope="col">Patient NHS #</th>
+                                    <th scope="col">Patient Name</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Order #</th>
+                                    <th scope="col">Order Amount(£)</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col" class="text-center">Action</th>
+                                </tr>
+                            </thead>   
+                            <tbody *ngIf="OrdersByStatus">
+                                <tr *ngFor="let o of OrdersByStatus" class="trClass wow fadeInDown">
+                                    <th scope="row">{{o.id}}</th>
+                                    <td>{{o.nhsNo}}</td>
+                                    <td>{{o.patientName}}</td>
+                                    <td>{{o.location}}</td>
+                                    <td>{{o.orderNo}}</td>
+                                    <td>{{o.netAmount}}</td>
+                                    <td>{{o.status}}</td>
+                                    <td class="textAlignClass">
+                                        <label class="radio">
+                                            <input type="radio" name="gob" [value]="o.orderNo" (change)="onOrderSelect($event)" id="orderStatus" />
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                    
+                        </table>
+    
+                        <div class="dsg mt-4">
+                            <div class="form-group row buttonsClass">
+                                <div class="text-center m-auto">
+                                    <button type="submit" nbButton status="primary" (click)="MoveToOrderDetail()" class="mr-2">
+                                        <nb-icon icon="eye-outline" class="mr-1"></nb-icon>View Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="dsg mt-4">
+                            <div class="form-group row buttonsClass">
+                                <div class="text-center m-auto">
+                                    <button type="submit" nbButton status="warning" class="mr-2">
+                                        <nb-icon icon="arrow-right-outline" class="mr-1"></nb-icon>Subscription Orders
+                                    </button>               
+                                    <button type="submit" nbButton status="success">
+                                        <nb-icon icon="clock-outline" class="mr-1"></nb-icon>Regular Orders
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4 mb-4">
+                            <div class="text-center dsg  m-auto">
+                                <button type="submit" nbButton status="danger" size="small" (click)="goToDeshboard()">
+                                    <nb-icon icon="close-circle-outline" class="mr-1"></nb-icon>Close
+                                </button>
+                            </div>
+                        </div>
+
+                    </nb-card-body>
+
+            </nb-card>
+
+        </div>
+    
+            
+
+    
+
+
+    </div> 
+    </div>
+</div>
+    
+<div *ngIf="statusByOrder === 'Accepted' ">
+    <ngx-accepted [item]="OrdersByStatus"></ngx-accepted>
+</div>
+
+
+<div *ngIf="statusByOrder === 'Rejected' ">
+    <ngx-rejected [item]="OrdersByStatus"></ngx-rejected>
+</div>
+
+
+<div *ngIf="statusByOrder === 'Delivered' ">
+    <ngx-delievered [item]="OrdersByStatus"></ngx-delievered>
+</div>
+
+<div *ngIf="statusByOrder === 'InTransist' ">
+    <ngx-transit [item]="OrdersByStatus"></ngx-transit>
+</div>

@@ -1,0 +1,143 @@
+
+ .table{
+   margin-top:26px; 
+}
+#btn1{
+   padding: 8px;
+}
+.data-col1
+{
+  display:flex;
+  align-items: center;
+}
+.data-col1 input
+{
+  width:55%;
+   height: 35px;
+   text-align: center;
+   padding: 7px;
+   font-weight: bold;
+}
+.data-col1 label{
+  border: 1px solid #0093fd;
+  height: 35px;
+  width: 150px;
+  text-align: center;
+  background-image: linear-gradient(44deg ,#42aaff,#0095ff);
+  margin: 1px;
+  color: #fff;
+}
+
+.data-col2
+{
+  display:flex;
+  align-items: center;
+}
+.data-col2 textarea{
+  width:55%;
+  height: 35px;
+  text-align: center;   
+  padding: 7px;
+  font-weight: bold;
+}
+.data-col2 label{
+  border: 1px solid #0093fd;
+  height: 35px;
+  width: 150px;
+  text-align: center;
+  background-image: linear-gradient(44deg ,#42aaff,#0095ff);
+  margin: 1px; 
+  color: #fff; 
+}
+#netamt{
+   width: 140px;
+}
+.data-col3{
+  display:flex;
+  align-items: center;
+  margin-top: 4px;
+}
+.data-col3 label{
+  border: 1px solid #0093fd;
+  height: 35px;
+  width: 150px;
+  text-align: center;
+  background-image: linear-gradient(44deg ,#42aaff,#0095ff);
+  color: #fff;
+}
+.data-col3 input{
+  width:16%;
+  height: 35px;
+  text-align: center;
+  padding: 7px;
+  font-weight: bold;
+  }
+  .pos1{
+   margin: 18px;
+   width: 10%;
+   padding: 2px;
+   margin-top: 8%;
+}
+#mrg2 table{
+    margin-top: 38px;
+}
+#mrg3 table{
+   margin-top: 38px;
+}
+#deliveryOrder .badge{
+  padding: 0.9rem 2rem;
+  font-size: 100%;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: #fff;
+}
+#deliveryOrder .table {
+  color: #dcdcdc;
+  border: 1px solid #000032;
+  margin: 20px 0;
+}
+#deliveryOrder .table thead{
+  background: #604cb3;
+}
+#deliveryOrder .table thead th{
+  border-bottom: 1px solid #000032;
+  border-top: none;
+  border-right: 1px solid #000032;
+  color: #fff;
+}
+#deliveryOrder .table th,  #deliveryOrder .table td{
+  border-top: 1px solid #000032;
+  border-right: 1px solid #000032;
+}
+@media (max-width: 768px){
+  .data-col3 input{
+    width: 45%
+  }
+}
+@media (max-width: 420px){
+  .data-col3 input {
+      width: 55%;
+  }
+  .data-col1{
+    display: block;
+  }
+  .data-col1 label{
+    width: 100%;
+  }
+  .data-col1 input{
+    width: 100%;
+  }
+  .data-col3{
+    display: block;
+  }
+  .data-col3 label{
+    width: 100%;
+  }
+  .data-col3 input{
+    width: 100%;
+  }
+}
